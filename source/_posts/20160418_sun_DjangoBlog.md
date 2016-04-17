@@ -21,7 +21,7 @@ $ sudo apt-get install python3-pip
 $ sudo pip3 install virtualenv
 ```
 
-# 现在开始使用virtualenv管理python环境。
+# 使用virtualenv
 ### 生成指定python版本的虚拟环境。
 ```shell
 $ virtualenv -p /path/to/your/python2.7 ENV2.7      # 对于python2.7
