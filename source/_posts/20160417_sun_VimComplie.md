@@ -4,7 +4,7 @@ date: 2016-04-17 23:12:42
 tags: 工具
 ---
 
-## 安装python
+# 安装python
 果然如果需要python支持，还是得用Cygwin中安装的。
 注意下面的几个源码编译时，python的版本必须统一。
 
