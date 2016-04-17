@@ -4,8 +4,9 @@ date: 2016-04-17 15:50:42
 tags: 环境
 ---
 
+------
+
 # Cygwin, tmux配置
-----------------------------------
 
 ## 安装，美化cygwin
 - install cygwin 2.871
@@ -99,8 +100,11 @@ tmuxは(/tmp/tmux-[uid]/default)を生成するがなぜか書き込めない。
 ```shell
     alias tmux='tmux -S /tmp/tmux-197608/default'
 ```
+
+------
+
 # Python开发环境
----------------------------------------
+
 ## 安装Python3和最新pip
 python3直接装官网最新的就行。
 To install pip, securely download get-pip.py.
@@ -113,8 +117,11 @@ Then run the following (which may require administrator access):
 ```shell
     $ pip install pep8, pyflakes, pylint, ipython
 ```
+
+------
+
 # Qt(with mingw)
-------------------------------------
+
 ## 安装Qt and MingW
   套件选择mingw4.9.2
   tools也选mingw4.9.2
@@ -136,12 +143,16 @@ Qt/Tools/mingw492_32/
 ```
 里面的bin和lib都添加到path中吧。
 
+------
+
 # CMake(GUI)
-------------------------------------
+
   目前最新是3.2.3
 
+------
+
 # OpenCV
-------------------------------------
+
 ## 编译OpenCV 2.4.11
   版本选linux源码版。
   运行cmake的GUI版，

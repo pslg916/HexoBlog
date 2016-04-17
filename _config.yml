@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: SLG BLOG 
 subtitle:
 description:
-author: John Doe
-language:
+author: Legong Sun 
+language: zh-Hans
 timezone:
 
 # URL
@@ -75,3 +75,5 @@ deploy:
   delete: true
   verbose: true
 
+# Since
+since: 2016

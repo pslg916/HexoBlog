@@ -1,10 +1,13 @@
 ---
 title: 过去的Django Blog
-date: 2016-04-18 20:12:42
+date: 2016-04-18 21:20:31
 tags: Django
 ---
 
+------
+
 # 概要
+
 1. 系统[Ubuntu14.04LTS]
 2. Apache2 + libapache2-mod-wsgi
 3. 用[VirtualEnv12.0.7](http://virtualenv.readthedocs.org/en/latest/)隔离。
@@ -13,7 +16,10 @@ tags: Django
 6. 主机本来用树莓派，实在太慢了受不了了，就用了的linode的VPS。
 7. Github: https://github.com/pslg916/SLGBlog.git （此系统现已废弃，博客已改用Hexo）
 
+------
+
 # 依赖安装
+
 ```shell
 $ sudo apt-get install apache2
 $ sudo apt-get install libapache2-mod-wsgi
@@ -21,8 +27,11 @@ $ sudo apt-get install python3-pip
 $ sudo pip3 install virtualenv
 ```
 
+------
+
 # 使用virtualenv
-### 生成指定python版本的虚拟环境。
+
+## 生成指定python版本的虚拟环境。
 ```shell
 $ virtualenv -p /path/to/your/python2.7 ENV2.7      # 对于python2.7
 $ virtualenv -p /path/to/your/python3.4 ENV3.4      # 对于python3.4
@@ -34,13 +43,13 @@ $ virtualenv -p /path/to/your/python3.4 ENV3.4      # 对于python3.4
     WSGIPythonPath /path/to/mysite.com:/path/to/your/venv/lib/python2.X/site-packages
 *   bin,bin/python是在当前环境是使用的python解释器
 
-### 激活/取消 virtualenv
+## 激活/取消 virtualenv
 ```shell
 $ source ./ENVx.x/bin/activate           # 激活
 $ deactivate                             # 取消
 ```
 
-### pip安装依赖
+## pip安装依赖
 ```shell
 (ENV3.4)$ pip install  django            # 安装最新版本的Django
 (ENV3.4)$ pip install -v django==1.7.1   # 或者指定安装版本
@@ -48,11 +57,17 @@ $ deactivate                             # 取消
 (ENV3.4)$ pip install markdown           # 安装markdown
 ```
 
+------
+
 # apache2的mod配置
+
 1. apache2安装后的module的位置在/usr/lib/apache2/modules/mod_wsgi.so
 2. 配置apache2的mod的文件夹在/etc/apache2/下，LoadModule wsgi_module /usr/lib/apache2/modules/mod_wsgi.so
 
+------
+
 # apache2的sites-available配置文件
+
 1. apache的site相关文件位置/etc/apache2/sites-available/***.conf。
 2. 可以自行添加.conf文件，其实这里的.conf即为apache2 VirtualHost的配置，理论上一个.conf中是可以配置多个VirtualHost的，没实践过。
 
@@ -114,8 +129,10 @@ $ deactivate                             # 取消
     # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
 ```
 
+------
 
 # 细节的坑
+
 - 多看error.log，可节约很多时间。
 - base.html中一定引用静态文件时，一定要以"/"开头，比如“/static/xxx/xxx.css"。
 - Linux下的配置文件基本都在/etc/下。
