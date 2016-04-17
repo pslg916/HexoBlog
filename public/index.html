@@ -229,6 +229,121 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/17/20160417_sun_VimComplie/" itemprop="url">
+                  Vim配置-源码编译篇
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-04-17T23:12:42+10:00" content="2016-04-17">
+              2016-04-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h2><p>果然如果需要python支持，还是得用Cygwin中安装的。<br>注意下面的几个源码编译时，python的版本必须统一。</p>
+<h1 id="Install-gmp-package"><a href="#Install-gmp-package" class="headerlink" title="Install gmp package"></a>Install gmp package</h1><p>用cygwin自带的setup-x86.exe安装gmp相关的包。vim源码编译的时候要用这个。</p>
+<h1 id="编译ncurses源码"><a href="#编译ncurses源码" class="headerlink" title="编译ncurses源码"></a>编译ncurses源码</h1><p><a href="http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz" target="_blank" rel="external">http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz</a><br>open a cygwin terminal,<br>cd to directory containing downloaded file<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxf ncurses-5.9.tar.gz</span><br><span class="line">$ cd ncurses-5.9</span><br><span class="line">$ ./configure --prefix=/usr</span><br><span class="line">$ make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<h1 id="编译lua源码"><a href="#编译lua源码" class="headerlink" title="编译lua源码"></a>编译lua源码</h1><p><a href="http://www.lua.org/ftp/lua-5.3.1.tar.gz" target="_blank" rel="external">http://www.lua.org/ftp/lua-5.3.1.tar.gz</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxf lua-5.3.1.tar.gz</span><br><span class="line">$ cd lua-5.3.1</span><br><span class="line">$ make mingw</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure></p>
+<h1 id="编译vim源码"><a href="#编译vim源码" class="headerlink" title="编译vim源码"></a>编译vim源码</h1><p>ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ ./configure --with-features=huge \</span><br><span class="line">              --enable-pythoninterp \</span><br><span class="line">              --enable-perlinterp \</span><br><span class="line">              --enable-rubyinterp \</span><br><span class="line">              --enable-luainterp \</span><br><span class="line">              --with-lua-prefix=/usr/local \</span><br><span class="line">              --enable-gui=no \</span><br><span class="line">              --without-x \</span><br><span class="line">              --enable-multibyte \</span><br><span class="line">              --prefix=/usr</span><br><span class="line">$ make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<p>注意这里python和python3只能选一个，两个都选不行。<br>但是有解决方案，懒得折腾了。</p>
+<h1 id="查看是否有-lua"><a href="#查看是否有-lua" class="headerlink" title="查看是否有+lua"></a>查看是否有+lua</h1><p>打开vim，输入:version, 查看vim编译时间，如果是本次编译生成，则说明正确，然后查看是否有+lua。</p>
+<h1 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h1><h4 id="1-not-found-lua-h"><a href="#1-not-found-lua-h" class="headerlink" title="1. not found lua.h"></a>1. not found lua.h</h4><p>在./configure命令后加上 | grep lua<br>grep出来的不满足的项目一个一个全部修正。<br>最容易出错的就是</p>
+<pre><code>--with-lua-prefix=/usr/local
+</code></pre><h4 id="2-vim源码的bug"><a href="#2-vim源码的bug" class="headerlink" title="2. vim源码的bug"></a>2. vim源码的bug</h4><p>编译时，出现下述error:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">objects/if_lua.o: In function &apos;luaV_list_insert&apos;:</span><br><span class="line">/home/spch2008/vim74/src/if_lua.c:777: undefined reference to &apos;luaL_optlong&apos; collect2: error: ld returned 1 exit status</span><br></pre></td></tr></table></figure></p>
+<p>修改src/if_lua.c:777<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">//long pos = luaL_optlong(L, 3, 0); // 修正前</span></span><br><span class="line"><span class="keyword">long</span> pos = (long)luaL_optinteger(L, <span class="number">3</span>, <span class="number">0</span>); <span class="comment">// 修正后</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>编译时，还可能出现下述error:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if_python3.c:66:20: fatal error: Python.h: No such file or directory</span><br><span class="line"> #include &lt;Python.h&gt;</span><br></pre></td></tr></table></figure></p>
+<p>修改src/if_python.c:66<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">//#include "Python.h" // 修正前</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="string">"E:\cygwin\usr\include\python2.7\Python.h"</span> // 修正后</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>修改之后注意可能需要dos2unix一下，视编辑器而定。</p>
+<hr>
+<h1 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h1><ul>
+<li>[x] 编译安装篇</li>
+<li>[ ] 主题美化篇</li>
+<li>[ ] 自动补全篇</li>
+<li>[ ] 键位配置篇</li>
+<li>[ ] 编译调试篇</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/17/20160417_sun_WinDevEnv/" itemprop="url">
                   Win7开发环境配置
                 </a>
@@ -479,7 +594,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -489,7 +604,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
