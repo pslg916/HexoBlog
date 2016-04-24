@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: SLG BLOG 
+title: SLG BLOG
 subtitle:
 description:
-author: Legong Sun 
+author: Legong Sun
 language: zh-Hans
 timezone:
 
@@ -63,17 +63,31 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next 
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:  
-  host: sun-is.me 
-  user: root 
+  type:
+  host: sun-is.me
+  user: root
   root: /var/www/blog
   delete: true
   verbose: true
 
 # Since
 since: 2016
+
+# MathJax
+math:
+  engine: 'mathjax' # or 'katex'
+  mathjax:
+    src: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    config:
+      tex2jax:
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ]
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        processEscapes: true
+        TeX:
+          equationNumbers:
+          autoNumber: "AMS"
