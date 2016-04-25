@@ -229,6 +229,199 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/24/20160424_sun_ThinPlateSpline/" itemprop="url">
+                  Thin Plate Spline
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-24T18:05:32+10:00" content="2016-04-24">
+              2016-04-24
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h1 id="1-Thin-Plate-Spline"><a href="#1-Thin-Plate-Spline" class="headerlink" title="1. Thin Plate Spline"></a>1. Thin Plate Spline</h1><p>简单来说，TPS是一种$ f: \mathbb R^K → \mathbb R^L $的座标变换。<br>此变换包含两部分，第一是Affine $f_A(x)$, 第二是Kernel $f_K(x)$。</p>
+<p>完整的TPS如下:</p>
+<p>$$<br>f(x)=f_A(x)+f_K(x)=\underbrace{Ax+b}_{\text{Affine}}+\overbrace{\sum_{n=1}^N w^{(n)} \varphi(x^{(n)}, x)}^{\text{Kernel}}<br>\tag{1}<br>$$<br>其中，</p>
+<p>$x$是变换前的K维座标；$f(x)$是变换后L维新座标；$x^{(n)}$是K维控制点，总共N个；$\varphi()$是核函数。<br>如此，便实现了$ \mathbb R^K→ \mathbb R^L $的变换。</p>
+<p>变换后的第$i$维$(i=1,…,L)$：</p>
+<p>$$<br>f_i(x)=\sum_{j=1}^K A_{ij}+b_i+\sum_{n=1}^N W_{in}\varphi(x^{(n)}, x)<br>\tag{2}<br>$$</p>
+<hr>
+<h1 id="2-TPS的能量函数1"><a href="#2-TPS的能量函数1" class="headerlink" title="2. TPS的能量函数1"></a>2. TPS的能量函数1</h1><p>TPS的能量函数包含数据项Data和平滑项TPS：</p>
+<p>$$<br>E(f) = E_{Data} + \lambda E_{TPS} = \underbrace{\sum_{n=1}^N ||y^{(n)}-f(x)^{(n)}||^2}_{\text{Data项}} + \overbrace{\lambda \int_{\mathbb R^K} dx||D^2f(x)||_{Frob.}}^{\text{TPS平滑项}}<br>\tag{3}<br>$$</p>
+<p>其中，</p>
+<ul>
+<li>$\lambda$是平滑项和数据项的平衡系数。</li>
+<li>$y^{(n)}$是变换后的_L_维控制点，与变换前的_K_维控制点$x^{(n)}$一一对应。</li>
+<li>数据项比较简单，用来表征控制点的误差。</li>
+<li>平滑项比较复杂，用来表征变换后数据的平滑性。</li>
+</ul>
+<p>平滑项的具体定义为TPS变换$f(x)$二次微分$[D^2f(x)]_{ijk}$</p>
+<p>$$<br>[D^2f(x)]_{ijk} = \frac{\partial^2 f_i(x)}{\partial x_j \partial x_k}<br>\tag{4}<br>$$</p>
+<p>的<a href="http://mathworld.wolfram.com/FrobeniusNorm.html" target="_blank" rel="external">Frobenius范数</a>累加和$||D^2f(x)||_{Frob.}$</p>
+<p>$$<br>||D^2f(x)||_{Frob.} = \sum_{i=1}^L \sum_{j=1}^K \sum_{k=1}^K |\frac{\partial^2}{\partial x_j \partial x_k}f_i(x)|^2<br>\tag{5}<br>$$</p>
+<p>在原始K维空间中的积分$\int_{\mathbb R^K} dx||D^2f(x)||_{Frob.}$。具体的计算见下节。</p>
+<hr>
+<h1 id="3-基于核函数的TPS平滑项"><a href="#3-基于核函数的TPS平滑项" class="headerlink" title="3. 基于核函数的TPS平滑项"></a>3. 基于核函数的TPS平滑项</h1><p>首先定义一下核函数:</p>
+<p>$$<br>\varphi(x, x^,) =<br>\begin{cases}<br>r^4-Klnr &amp; \text{(K为基数)} \\<br>r^4-K &amp; \text{(K为偶数)}<br>\end{cases} \\<br>\tag{6}<br>$$</p>
+<p>其中$r=||x-x^,||$。<br>接着处理原始K维空间中的积分$\int_{\mathbb R^K} dx||D^2f(x)||_{Frob.}$：</p>
+<p>$$<br>E_{TPS}=\int_{\mathbb R^K}dx||D^2f(x)||_{Frob.}=\int_{\mathbb R^K}dx\sum_{i=1}^L\sum_{j=1}^K\sum_{k=1}^K|\frac {\partial^2} {\partial x_j \partial x_k} f_i (x)|^2<br>\tag{7}<br>$$</p>
+<p>$$<br>=\int_{\mathbb R^K}dx\sum_{i=1}^L\sum_{j=1}^K\sum_{k=1}^K|\frac {\partial^2} {\partial x_j \partial x_k} \sum_{n=1}^N W_{in} \varphi(x^{(n)}, x) |^2<br>\tag{8}<br>$$</p>
+<p>$$<br>= \mathbf Tr( \mathbf {W \phi W^T}) = \sum_{i=1}^L \sum_{n=1}^N \sum_{m=1}^N W_{in} \phi_{mn} W_{im}<br>\tag{9}<br>$$</p>
+<p>其中$\phi_{mn}=\varphi(||x^{(n)}-x^{(m)}||)$。</p>
+<h1 id="4-TPS能量函数2"><a href="#4-TPS能量函数2" class="headerlink" title="4. TPS能量函数2"></a>4. TPS能量函数2</h1><p>把式(1)，式(9)，以及核函数的定义带入能量函数(3):</p>
+<p>$$<br>E(f)=E_{Data}+\lambda E_{TPS}<br>\tag{10}<br>$$</p>
+<p>$$<br>= \sum_{n=1}^N || y^{(n)} - Ax^{(n)} - b - \sum_{m=1}^Nw^{(m)}\varphi(||x^{(n)}-x^{(m)}||)||^2 + \lambda \mathbf Tr( \mathbf {W \phi W^T})<br>\tag{11}<br>$$</p>
+<p>$$<br>= \sum_{n=1}^N || y^{(n)} - Ax^{(n)} - b - \sum_{m=1}^Nw^{(m)}\varphi(||x^{(n)}-x^{(m)}||)||^2 + \lambda \sum_{i=1}^L \sum_{n=1}^N \sum_{m=1}^N W_{in} \phi_{mn} W_{im}<br>\tag{12}<br>$$</p>
+<p>其中，</p>
+<ul>
+<li>$Y_{in}$ 是变换后的第n个控制点的第i维(共L维)。</li>
+<li>$X_{jn}$ 是变换前的第n个控制点的第j维(共K维)。</li>
+</ul>
+<p>如式(12)所示，TPS的能量函数最终归结为关于三个变量$A_{ij}, b_i, W_{in}$的二次函数。</p>
+<ul>
+<li>第一项$E_{Data}$明显是关于变量($A_{ij}, b_i$)下突二次函数。</li>
+<li>第二项$E_{TPS}$可以看作关于变量$W$的正系数($\mathbf \phi$)连加下突二次($W_{in}W_{im}$)函数。</li>
+</ul>
+<p>两项都下突，TPS能量函数的最小值就可能存在解析解。</p>
+<h1 id="5-能量函数最小值"><a href="#5-能量函数最小值" class="headerlink" title="5. 能量函数最小值"></a>5. 能量函数最小值</h1><p>首先对三个变量$A_{ij}, b_i, W_{in}$分别求偏导:</p>
+<p>$$<br>\frac {\partial E(f)} {\partial A_{ij}} = -2 \sum_{n=1}^K (Y_{in} - \sum_{k=1}^K A_{ik}X_{kn} - b_i - \sum_{l=1}^N W_{il} \phi_{ln}) X_{jn}<br>\tag{13}<br>$$</p>
+<p>$$<br>\frac {\partial E(f)} {\partial b_i} = -2 \sum_{n=1}^K (Y_{in} - \sum_{k=1}^K A_{ik}X_{kn} - b_i - \sum_{l=1}^N W_{il} \phi_{ln})<br>\tag{14}<br>$$</p>
+<p>$$<br>\frac {\partial E(f)} {\partial W_{im}} = -2 \sum_{n=1}^K (Y_{in} - \sum_{k=1}^K A_{ik}X_{kn} - b_i - \sum_{l=1}^N W_{il} \phi_{ln}) \phi_{mn} + \lambda \sum_{n=1}^N (W_{in} \phi_{mn} + \phi_{nm} W_{in})<br>\tag{15}<br>$$</p>
+<p>令$\partial E(f) = 0$，并利用核函数$\phi_{mn}=\phi_{nm}$的对称性，可得:</p>
+<p>$$<br>\sum_{n=1}^K (Y_{in} - \sum_{k=1}^K A_{ik}X_{kn} - b_i - \sum_{l=1}^N W_{il} \phi_{ln}) X_{jn} = 0 \<br>(i=1,…,L, j=1,…,K)<br>\tag{16}<br>$$</p>
+<p>$$<br>\sum_{n=1}^K (Y_{in} - \sum_{k=1}^K A_{ik}X_{kn} - b_i - \sum_{l=1}^N W_{il} \phi_{ln}) = 0 \<br>(i=1,…,L)<br>\tag{17}<br>$$</p>
+<p>$$<br>\sum_{n=1}^K (Y_{in} - \sum_{k=1}^K A_{ik}X_{kn} - b_i - \sum_{l=1}^N W_{il} \phi_{ln} - \lambda W_{in}) \phi_{mn} = 0 \<br>(i=1,…,L, m=1,…,N)<br>\tag{18}<br>$$</p>
+<p>进一步整理可得($i,m,n$取值范围同上，下略):</p>
+<p>$$<br>\sum_{n=1}^N \sum_{k=1}^K X_{kn} X_{jn} A_{ik} + \sum_{n=1}^N X_{jn}b_i + \sum_{n=1}^N \sum_{l=1}^N X_{jn} \phi_{ln} W_{il} = \sum_{n=1}^N Y_{in} X_{jn}<br>\tag{19}<br>$$</p>
+<p>$$<br>\sum_{n=1}^N \sum_{k=1}^K X_{kn} A_{ik} + Nb_i + \sum_{n=1}^N \sum_{l=1}^N \phi_{ln} W_{il} = \sum_{n=1}^N Y_{in}<br>\tag{20}<br>$$</p>
+<p>$$<br>\sum_{n=1}^N \sum_{k=1}^K X_{kn} \phi_{mn} A_{ik} + \sum_{n=1}^N \phi_{mn}b_i + \sum_{l=1}^N (\sum_{n=1}^N \phi_{ln} \phi_{mn} + \lambda \phi_{ml}) W_{il} = \sum_{n=1}^N Y_{in} \phi_{mn}<br>\tag{21}<br>$$</p>
+<p>上式中各项可通过矩阵表示:</p>
+<ul>
+<li>变换前的K维控制点$X_{kn}$用$K*N$矩阵表示$\mathbf X$。</li>
+<li>变换后的L维控制点$Y_{ln}$用$L*N$矩阵表示$\mathbf Y$。</li>
+<li>变形系数$W_{ln}$可以表示为$L*N$矩阵$\mathbf W$。</li>
+<li>Affine变换系数$A_{lk}$可以表示为$L*K$矩阵$\mathbf A$。</li>
+<li>Affine变换系数$b_{l}$可以表示为$L*1$矩阵$\mathbf b$。</li>
+<li>把所有控制点带入核函数$\phi_{mn}(||x^{(n)-x^{(m)}}||)$，可得$N*N$核矩阵$\mathbf \phi$。</li>
+</ul>
+<p>将上述矩阵带入:</p>
+<p>$$<br>\sum_{k=1}^K A_{ik}[\mathbf X \mathbf X^T]_{kj} + bi[\sum_{n=1}^N X_{jn}] + \sum_{l=1}^N[\mathbf X \phi^T]_{jl}W_{il} = [\mathbf Y \mathbf X^T]_{ij}<br>\tag{22}<br>$$</p>
+<p>$$<br>\sum_{k=1}^K A_{ik}[\sum_{n=1}^N X_{kn}] + Nb_i + \sum_{l=1}^N[\sum_{n=1}^N \phi_{ln}]W_{il} = [\sum_{n=1}^N Y_{in}]<br>\tag{23}<br>$$</p>
+<p>$$<br>\sum_{k=1}^K A_{ik}[\mathbf X \mathbf \phi^T]_{km} + b_i[\sum_{n=1}^N \phi_{mn}] + \sum_{l=1}^N[\mathbf \phi(\mathbf \phi^T + \lambda \mathbf I)]_ml W_{il} = [\mathbf Y \mathbf \phi^T]_{im}<br>\tag{24}<br>$$</p>
+<p>引入$N*1$的列向量$\mathbf 1$:</p>
+<p>$$<br>[\mathbf A \mathbf X \mathbf X^T]_{ij} + [\mathbf b(\mathbf X \mathbf 1)^T]_{ij} + [\mathbf W \mathbf \phi \mathbf X^T]_{ij} = [\mathbf Y \mathbf X^T]_{ij}<br>\tag{25}<br>$$</p>
+<p>$$<br>[\mathbf A(\mathbf X \mathbf 1)]_i + [(\mathbf 1^T \mathbf 1)\mathbf b]_i + [\mathbf W \mathbf \phi \mathbf 1]_i = [\mathbf Y \mathbf 1]_i<br>\tag{26}<br>$$</p>
+<p>$$<br>[\mathbf A \mathbf X \mathbf \phi^T]_{im} + [\mathbf b (\mathbf 1^T \mathbf \phi^T)]_{im} + [\mathbf W (\mathbf \phi^T+\lambda \mathbf I)^T \mathbf \phi^T]_(im) = [\mathbf  Y \mathbf \phi^T]_im<br>\tag{27}<br>$$</p>
+<p>去掉上式中的所有的索引$i,j$，并转置:</p>
+<p>$$<br>\mathbf X^T \mathbf X \mathbf A^T + \mathbf X \mathbf 1 \mathbf b^T + \mathbf X \mathbf \phi^T \mathbf W^T = \mathbf X \mathbf Y^T<br>\tag{28}<br>$$</p>
+<p>$$<br>\mathbf 1^T \mathbf X^T \mathbf A^T + \mathbf 1^T \mathbf 1 \mathbf b^T + \mathbf 1^T \mathbf \phi^T \mathbf W^T = \mathbf 1^T \mathbf Y^T<br>\tag{29}<br>$$</p>
+<p>$$<br>\mathbf \phi \mathbf X^T \mathbf A^T + \mathbf \phi \mathbf 1 \mathbf b^T + \mathbf \phi(\mathbf \phi^T + \lambda \mathbf I)\mathbf W^T = \mathbf \phi \mathbf Y^T<br>\tag{30}<br>$$</p>
+<p>至此，已得到关于未知矩阵$\mathbf A，\mathbf b，\mathbf W$的三个方程。<br>进一步将上述方程组的系数和未知数分离(注意这里系数核未知数都是矩阵，不是常量):</p>
+<p>$$<br>\begin{bmatrix}<br>\mathbf X^T \mathbf X &amp; \mathbf X \mathbf 1 &amp; \mathbf X \mathbf \phi^T \\<br>\mathbf 1^T \mathbf X^T &amp; \mathbf 1^T \mathbf 1 &amp; \mathbf 1^T \mathbf \phi^T \\<br>\mathbf \phi \mathbf X^T &amp; \mathbf \phi \mathbf 1 &amp; \mathbf \phi(\mathbf \phi^T + \lambda \mathbf I)<br>\end{bmatrix}<br>\begin{bmatrix}<br>\mathbf A^T \\<br>\mathbf b^T \\<br>\mathbf W^T<br>\end{bmatrix}<br>=<br>\begin{bmatrix}<br>\mathbf X \mathbf Y^T \\<br>\mathbf 1^T \mathbf Y \\<br>\mathbf \phi \mathbf Y^T<br>\end{bmatrix}<br>\tag{31}<br>$$</p>
+<p>继续整理:</p>
+<p>$$<br>\begin{bmatrix}<br>\mathbf \phi(\mathbf \phi^T + \lambda \mathbf I) &amp; \mathbf \phi \mathbf X^T &amp; \mathbf \phi \mathbf 1 \\<br>\mathbf X \mathbf \phi^T &amp; \mathbf X^T \mathbf X &amp; \mathbf X \mathbf 1 \\<br>\mathbf 1^T \mathbf \phi \mathbf 1^T &amp; \mathbf 1 ^T \mathbf X^T &amp; \mathbf 1^T \mathbf 1<br>\end{bmatrix}<br>\begin{bmatrix}<br>\mathbf W^T \\<br>\mathbf A^T \\<br>\mathbf b^T<br>\end{bmatrix}<br>=<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\mathbf Y^T<br>\tag{32}<br>$$</p>
+<p>接着将数据项和平滑项相关矩阵分离:</p>
+<p>$$<br>\left(<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\begin{bmatrix}<br>\mathbf \phi^T &amp; \mathbf X^T &amp; \mathbf 1<br>\end{bmatrix} + \lambda<br>\begin{bmatrix}<br>\mathbf \phi &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0<br>\end{bmatrix}<br>\right)<br>\begin{bmatrix}<br>\mathbf W^T \\<br>\mathbf A^T \\<br>\mathbf b^T<br>\end{bmatrix} =<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\mathbf Y^T<br>\tag{33}<br>$$</p>
+<p>最后将未知矩阵放左边，其余部分放右边:</p>
+<p>$$<br>\begin{bmatrix}<br>\mathbf W^T \\<br>\mathbf A^T \\<br>\mathbf b^T<br>\end{bmatrix} =<br>\left(<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\begin{bmatrix}<br>\mathbf \phi^T &amp; \mathbf X^T &amp; \mathbf 1<br>\end{bmatrix} + \lambda<br>\begin{bmatrix}<br>\mathbf \phi &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0<br>\end{bmatrix}<br>\right)^{-1}<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\mathbf Y^T<br>\tag{34}<br>$$</p>
+<p>式(34)的计算结果，即为TPS能量函数最小值的参数。<br>得到此参数后，便可通过式(1)对任意K维座标$x$进行变换，得到新的L维座标$f(x)$。</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1]. Thin plate spline (Wikipedia).<br>[2]. Chui, Haili, and Anand Rangarajan. “A new point matching algorithm for non-rigid registration.”Computer Vision and Image Understanding 89.2 (2003): 114-141.<br>[3]. Wood, Simon N. “Thin plate regression splines.” Journal of the Royal Statistical Society: Series B (Statistical Methodology) 65.1 (2003): 95-114.</p>
+<h1 id="附录-变量索引"><a href="#附录-变量索引" class="headerlink" title="附录: 变量索引"></a>附录: 变量索引</h1><ul>
+<li>(知) K: 变换前控制点$X_{kn}$的维数。</li>
+<li>(知) L: 变换后控制点$Y_{ln}$的维数。</li>
+<li>(知) $\mathbf x^{(n)}$: 变换前的K维控制点(K*1)。</li>
+<li>(知) $\mathbf y^{(n)}$: 变换后的L维控制点(L*1)。</li>
+<li>(知) $\mathbf X$: 变换前的所有控制点的$K*N$矩阵表示。</li>
+<li>(知) $\mathbf Y$: 变换后的所有控制点的$L*N$矩阵表示。</li>
+<li>(知) $\mathbf \phi$: 所有控制点带入核函数$\phi_{mn}(||x^{(n)-x^{(m)}}||)$所得$N*N$核矩阵。</li>
+<li>(未) $\mathbf W$: 变形系数$W_{ln}$的$L*N$矩阵表示。</li>
+<li>(未) $\mathbf A$: Affine变换系数$A_{lk}$的$L*K$矩阵表示。</li>
+<li>(未) $\mathbf b$: Affine变换系数$b_{l}$的$L*1$矩阵表示。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/20/20160420_sun_HexoBlogEnv/" itemprop="url">
                   Hexo在VPS上用Git Hook部署
                 </a>
@@ -243,7 +436,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-20T22:23:50+09:00" content="2016-04-20">
+            <time itemprop="dateCreated" datetime="2016-04-20T23:23:50+10:00" content="2016-04-20">
               2016-04-20
             </time>
           </span>
@@ -381,7 +574,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/18/20140418_sun_CmdMarkdownExample/" itemprop="url">
+                <a class="post-title-link" href="/2016/04/19/20140418_sun_CmdMarkdownExample/" itemprop="url">
                   Cmd Markdown 样例
                 </a>
               
@@ -395,8 +588,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-18T23:01:21+09:00" content="2016-04-18">
-              2016-04-18
+            <time itemprop="dateCreated" datetime="2016-04-19T00:01:21+10:00" content="2016-04-19">
+              2016-04-19
             </time>
           </span>
 
@@ -571,7 +764,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-18T21:20:31+09:00" content="2016-04-18">
+            <time itemprop="dateCreated" datetime="2016-04-18T22:20:31+10:00" content="2016-04-18">
               2016-04-18
             </time>
           </span>
@@ -697,7 +890,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/04/17/20160417_sun_VimComplie/" itemprop="url">
+                <a class="post-title-link" href="/2016/04/18/20160417_sun_VimComplie/" itemprop="url">
                   Vim配置-源码编译篇
                 </a>
               
@@ -711,8 +904,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-17T23:12:42+09:00" content="2016-04-17">
-              2016-04-17
+            <time itemprop="dateCreated" datetime="2016-04-18T00:12:42+10:00" content="2016-04-18">
+              2016-04-18
             </time>
           </span>
 
@@ -833,7 +1026,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-17T15:50:42+09:00" content="2016-04-17">
+            <time itemprop="dateCreated" datetime="2016-04-17T16:50:42+10:00" content="2016-04-17">
               2016-04-17
             </time>
           </span>
@@ -967,7 +1160,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -977,7 +1170,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
