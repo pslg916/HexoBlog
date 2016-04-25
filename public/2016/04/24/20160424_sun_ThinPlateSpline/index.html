@@ -90,7 +90,7 @@ $$f(x)=f_A(x)+f_K(x)=\underbrace{Ax+b}_{\text{Affine}}+\overbrace{\sum_">
 <meta property="og:description" content="1. Thin Plate Spline简单来说，TPS是一种$ f: \mathbb R^K → \mathbb R^L $的座标变换。此变换包含两部分，第一是Affine $f_A(x)$, 第二是Kernel $f_K(x)$。
 完整的TPS如下:
 $$f(x)=f_A(x)+f_K(x)=\underbrace{Ax+b}_{\text{Affine}}+\overbrace{\sum_">
-<meta property="og:updated_time" content="2016-04-25T05:46:04.455Z">
+<meta property="og:updated_time" content="2016-04-25T07:24:30.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Thin Plate Spline">
 <meta name="twitter:description" content="1. Thin Plate Spline简单来说，TPS是一种$ f: \mathbb R^K → \mathbb R^L $的座标变换。此变换包含两部分，第一是Affine $f_A(x)$, 第二是Kernel $f_K(x)$。
@@ -361,7 +361,7 @@ $$f(x)=f_A(x)+f_K(x)=\underbrace{Ax+b}_{\text{Affine}}+\overbrace{\sum_">
 <p>$$<br>\begin{bmatrix}<br>\mathbf W^T \\<br>\mathbf A^T \\<br>\mathbf b^T<br>\end{bmatrix} =<br>\left(<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\begin{bmatrix}<br>\mathbf \phi^T &amp; \mathbf X^T &amp; \mathbf 1<br>\end{bmatrix} + \lambda<br>\begin{bmatrix}<br>\mathbf \phi &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0<br>\end{bmatrix}<br>\right)^{-1}<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\mathbf Y^T<br>\tag{34}<br>$$</p>
 <p>式(34)的计算结果，即为TPS能量函数最小值的参数。<br>得到此参数后，便可通过式(1)对任意K维座标$x$进行变换，得到新的L维座标$f(x)$。</p>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1]. Thin plate spline (Wikipedia).<br>[2]. Chui, Haili, and Anand Rangarajan. “A new point matching algorithm for non-rigid registration.”Computer Vision and Image Understanding 89.2 (2003): 114-141.<br>[3]. Wood, Simon N. “Thin plate regression splines.” Journal of the Royal Statistical Society: Series B (Statistical Methodology) 65.1 (2003): 95-114.</p>
-<h1 id="附录-变量索引"><a href="#附录-变量索引" class="headerlink" title="附录: 变量索引"></a>附录: 变量索引</h1><ul>
+<h1 id="附录-变量索引"><a href="#附录-变量索引" class="headerlink" title="附录(变量索引)"></a>附录(变量索引)</h1><ul>
 <li>(知) K: 变换前控制点$X_{kn}$的维数。</li>
 <li>(知) L: 变换后控制点$Y_{ln}$的维数。</li>
 <li>(知) $\mathbf x^{(n)}$: 变换前的K维控制点(K*1)。</li>
@@ -515,7 +515,7 @@ $$f(x)=f_A(x)+f_K(x)=\underbrace{Ax+b}_{\text{Affine}}+\overbrace{\sum_">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Thin-Plate-Spline"><span class="nav-number">1.</span> <span class="nav-text">1. Thin Plate Spline</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-TPS的能量函数1"><span class="nav-number">2.</span> <span class="nav-text">2. TPS的能量函数1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-基于核函数的TPS平滑项"><span class="nav-number">3.</span> <span class="nav-text">3. 基于核函数的TPS平滑项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-TPS能量函数2"><span class="nav-number">4.</span> <span class="nav-text">4. TPS能量函数2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-能量函数最小值"><span class="nav-number">5.</span> <span class="nav-text">5. 能量函数最小值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">6.</span> <span class="nav-text">References</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录-变量索引"><span class="nav-number">7.</span> <span class="nav-text">附录: 变量索引</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Thin-Plate-Spline"><span class="nav-number">1.</span> <span class="nav-text">1. Thin Plate Spline</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-TPS的能量函数1"><span class="nav-number">2.</span> <span class="nav-text">2. TPS的能量函数1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-基于核函数的TPS平滑项"><span class="nav-number">3.</span> <span class="nav-text">3. 基于核函数的TPS平滑项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-TPS能量函数2"><span class="nav-number">4.</span> <span class="nav-text">4. TPS能量函数2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-能量函数最小值"><span class="nav-number">5.</span> <span class="nav-text">5. 能量函数最小值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#References"><span class="nav-number">6.</span> <span class="nav-text">References</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录-变量索引"><span class="nav-number">7.</span> <span class="nav-text">附录(变量索引)</span></a></li></ol></div>
             
           </div>
         </section>

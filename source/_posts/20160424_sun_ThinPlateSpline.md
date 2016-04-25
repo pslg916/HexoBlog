@@ -363,7 +363,7 @@ $$
 [2]. Chui, Haili, and Anand Rangarajan. “A new point matching algorithm for non-rigid registration.”Computer Vision and Image Understanding 89.2 (2003): 114-141.
 [3]. Wood, Simon N. “Thin plate regression splines.” Journal of the Royal Statistical Society: Series B (Statistical Methodology) 65.1 (2003): 95-114.
 
-# 附录: 变量索引
+# 附录(变量索引)
 
 - (知) K: 变换前控制点$X\_{kn}$的维数。
 - (知) L: 变换后控制点$Y\_{ln}$的维数。
