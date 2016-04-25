@@ -359,7 +359,7 @@
 <p>$$<br>\left(<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\begin{bmatrix}<br>\mathbf \phi^T &amp; \mathbf X^T &amp; \mathbf 1<br>\end{bmatrix} + \lambda<br>\begin{bmatrix}<br>\mathbf \phi &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0<br>\end{bmatrix}<br>\right)<br>\begin{bmatrix}<br>\mathbf W^T \\<br>\mathbf A^T \\<br>\mathbf b^T<br>\end{bmatrix} =<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\mathbf Y^T<br>\tag{33}<br>$$</p>
 <p>最后将未知矩阵放左边，其余部分放右边:</p>
 <p>$$<br>\begin{bmatrix}<br>\mathbf W^T \\<br>\mathbf A^T \\<br>\mathbf b^T<br>\end{bmatrix} =<br>\left(<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\begin{bmatrix}<br>\mathbf \phi^T &amp; \mathbf X^T &amp; \mathbf 1<br>\end{bmatrix} + \lambda<br>\begin{bmatrix}<br>\mathbf \phi &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0<br>\end{bmatrix}<br>\right)^{-1}<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\mathbf Y^T<br>\tag{34}<br>$$</p>
-<p>式(34)的计算结果，即为TPS能量函数最小值的参数。<br>得到此参数后，便可通过(1)式对任意K维座标$x$进行变换，得到新的L维座标$f(x)$。</p>
+<p>式(34)的计算结果，即为TPS能量函数最小值的参数。<br>得到此参数后，便可通过式(1)对任意K维座标$x$进行变换，得到新的L维座标$f(x)$。</p>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1]. Thin plate spline (Wikipedia).<br>[2]. Chui, Haili, and Anand Rangarajan. “A new point matching algorithm for non-rigid registration.”Computer Vision and Image Understanding 89.2 (2003): 114-141.<br>[3]. Wood, Simon N. “Thin plate regression splines.” Journal of the Royal Statistical Society: Series B (Statistical Methodology) 65.1 (2003): 95-114.</p>
 <h1 id="附录-变量索引"><a href="#附录-变量索引" class="headerlink" title="附录(变量索引)"></a>附录(变量索引)</h1><ul>
 <li>(知) K: 变换前控制点$X_{kn}$的维数。</li>
@@ -1295,7 +1295,7 @@
 
   <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"quationNumbers":{"autoNumber":"AMS"}}});
 </script>
 
 <script type="text/x-mathjax-config">
