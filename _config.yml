@@ -89,5 +89,5 @@ math:
         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
         processEscapes: true
       TeX:
-        equationNumbers:
-        autoNumber: "AMS"
+        quationNumbers:
+          autoNumber: "AMS"
