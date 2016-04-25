@@ -88,3 +88,6 @@ math:
       TeX:
         quationNumbers:
           autoNumber: "AMS"
+
+# Author Photo
+avatar: /uploads/slg.jpg 
