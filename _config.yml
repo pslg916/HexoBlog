@@ -82,7 +82,7 @@ since: 2016
 math:
   engine: 'mathjax' # or 'katex'
   mathjax:
-    src: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    src: "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
     config:
       tex2jax:
         inlineMath: [ ['$','$'], ["\\(","\\)"] ]
