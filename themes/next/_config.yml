@@ -56,8 +56,8 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
-#scheme: Mist
+#scheme: Muse
+scheme: Mist
 #scheme: Pisces
 
 
@@ -190,7 +190,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: normal
+highlight_theme: night 
 
 
 # Automatically scroll page to section which is under <!-- more --> mark.
@@ -219,7 +219,7 @@ auto_excerpt:
 
 # MathJax Support
 mathjax:
-  enable: false
+  enable: true 
   cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 
