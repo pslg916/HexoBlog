@@ -90,7 +90,7 @@ $$f(x)=f_A(x)+f_K(x)=\underbrace{Ax+b}_{\text{Affine}}+\overbrace{\sum_{n=">
 <meta property="og:description" content="Thin Plate Spline简单来说，TPS是一种$ f: \mathbb R^K → \mathbb R^L $的座标变换。此变换包含两部分，第一是Affine $f_A(x)$, 第二是Kernel $f_K(x)$。
 完整的TPS如下:
 $$f(x)=f_A(x)+f_K(x)=\underbrace{Ax+b}_{\text{Affine}}+\overbrace{\sum_{n=">
-<meta property="og:updated_time" content="2016-04-25T14:08:16.235Z">
+<meta property="og:updated_time" content="2016-04-27T14:53:38.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Thin Plate Spline">
 <meta name="twitter:description" content="Thin Plate Spline简单来说，TPS是一种$ f: \mathbb R^K → \mathbb R^L $的座标变换。此变换包含两部分，第一是Affine $f_A(x)$, 第二是Kernel $f_K(x)$。
@@ -313,6 +313,7 @@ $$f(x)=f_A(x)+f_K(x)=\underbrace{Ax+b}_{\text{Affine}}+\overbrace{\sum_{n=">
 <p>$$<br>=\int_{\mathbb R^K}dx\sum_{i=1}^L\sum_{j=1}^K\sum_{k=1}^K|\frac {\partial^2} {\partial x_j \partial x_k} \sum_{n=1}^N W_{in} \varphi(x^{(n)}, x) |^2<br>\tag{8}<br>$$</p>
 <p>$$<br>= \mathbf Tr( \mathbf {W \phi W^T}) = \sum_{i=1}^L \sum_{n=1}^N \sum_{m=1}^N W_{in} \phi_{mn} W_{im}<br>\tag{9}<br>$$</p>
 <p>其中$\phi_{mn}=\varphi(||x^{(n)}-x^{(m)}||)$。</p>
+<hr>
 <h1 id="TPS能量函数2"><a href="#TPS能量函数2" class="headerlink" title="TPS能量函数2"></a>TPS能量函数2</h1><p>把式(1)，式(9)，以及核函数的定义带入能量函数(3):</p>
 <p>$$<br>E(f)=E_{Data}+\lambda E_{TPS}<br>\tag{10}<br>$$</p>
 <p>$$<br>= \sum_{n=1}^N || y^{(n)} - Ax^{(n)} - b - \sum_{m=1}^Nw^{(m)}\varphi(||x^{(n)}-x^{(m)}||)||^2 + \lambda \mathbf Tr( \mathbf {W \phi W^T})<br>\tag{11}<br>$$</p>
@@ -328,6 +329,7 @@ $$f(x)=f_A(x)+f_K(x)=\underbrace{Ax+b}_{\text{Affine}}+\overbrace{\sum_{n=">
 <li>第二项$E_{TPS}$可以看作关于变量$W$的正系数($\mathbf \phi$)连加下突二次($W_{in}W_{im}$)函数。</li>
 </ul>
 <p>两项都下突，TPS能量函数的最小值就可能存在解析解。</p>
+<hr>
 <h1 id="能量函数最小值"><a href="#能量函数最小值" class="headerlink" title="能量函数最小值"></a>能量函数最小值</h1><p>首先对三个变量$A_{ij}, b_i, W_{in}$分别求偏导:</p>
 <p>$$<br>\frac {\partial E(f)} {\partial A_{ij}} = -2 \sum_{n=1}^K (Y_{in} - \sum_{k=1}^K A_{ik}X_{kn} - b_i - \sum_{l=1}^N W_{il} \phi_{ln}) X_{jn}<br>\tag{13}<br>$$</p>
 <p>$$<br>\frac {\partial E(f)} {\partial b_i} = -2 \sum_{n=1}^K (Y_{in} - \sum_{k=1}^K A_{ik}X_{kn} - b_i - \sum_{l=1}^N W_{il} \phi_{ln})<br>\tag{14}<br>$$</p>
@@ -370,7 +372,9 @@ $$f(x)=f_A(x)+f_K(x)=\underbrace{Ax+b}_{\text{Affine}}+\overbrace{\sum_{n=">
 <p>最后将未知矩阵放左边，其余部分放右边:</p>
 <p>$$<br>\begin{bmatrix}<br>\mathbf W^T \\<br>\mathbf A^T \\<br>\mathbf b^T<br>\end{bmatrix} =<br>\left(<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\begin{bmatrix}<br>\mathbf \phi^T &amp; \mathbf X^T &amp; \mathbf 1<br>\end{bmatrix} + \lambda<br>\begin{bmatrix}<br>\mathbf \phi &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0 \\<br>\mathbf 0 &amp; \mathbf 0 &amp; \mathbf 0<br>\end{bmatrix}<br>\right)^{-1}<br>\begin{bmatrix}<br>\mathbf \phi \\<br>\mathbf X \\<br>\mathbf 1^T<br>\end{bmatrix}<br>\mathbf Y^T<br>\tag{34}<br>$$</p>
 <p>式(34)的计算结果，即为TPS能量函数最小值的参数。<br>得到此参数后，便可通过式(1)对任意K维座标$x$进行变换，得到新的L维座标$f(x)$。</p>
+<hr>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p>[1]. Thin plate spline (Wikipedia).<br>[2]. Chui, Haili, and Anand Rangarajan. “A new point matching algorithm for non-rigid registration.”Computer Vision and Image Understanding 89.2 (2003): 114-141.<br>[3]. Wood, Simon N. “Thin plate regression splines.” Journal of the Royal Statistical Society: Series B (Statistical Methodology) 65.1 (2003): 95-114.</p>
+<hr>
 <h1 id="附录-变量索引"><a href="#附录-变量索引" class="headerlink" title="附录(变量索引)"></a>附录(变量索引)</h1><ul>
 <li>(知) K: 变换前控制点$X_{kn}$的维数。</li>
 <li>(知) L: 变换后控制点$Y_{ln}$的维数。</li>

@@ -97,6 +97,8 @@ $$
 
 其中$\phi\_{mn}=\varphi(||x^{(n)}-x^{(m)}||)$。
 
+------
+
 # TPS能量函数2
 
 把式(1)，式(9)，以及核函数的定义带入能量函数(3):
@@ -127,6 +129,8 @@ $$
 - 第二项$E\_{TPS}$可以看作关于变量$W$的正系数($\mathbf \phi$)连加下突二次($W\_{in}W\_{im}$)函数。
 
 两项都下突，TPS能量函数的最小值就可能存在解析解。
+
+------
 
 # 能量函数最小值
 
@@ -357,11 +361,15 @@ $$
 式(34)的计算结果，即为TPS能量函数最小值的参数。
 得到此参数后，便可通过式(1)对任意K维座标$x$进行变换，得到新的L维座标$f(x)$。
 
+------
+
 # References
 
 [1]. Thin plate spline (Wikipedia).
 [2]. Chui, Haili, and Anand Rangarajan. “A new point matching algorithm for non-rigid registration.”Computer Vision and Image Understanding 89.2 (2003): 114-141.
 [3]. Wood, Simon N. “Thin plate regression splines.” Journal of the Royal Statistical Society: Series B (Statistical Methodology) 65.1 (2003): 95-114.
+
+------
 
 # 附录(变量索引)
 
