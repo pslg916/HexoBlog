@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="工具," />
+  <meta name="keywords" content="Vim," />
 
 
 
@@ -80,28 +80,31 @@
 
 
 
-<meta name="description" content="安装python果然如果需要python支持，下面的几个源码编译时，python的版本必须统一。
+<meta name="description" content="详细记录了源码编译Vim的过程。
+安装python果然如果需要python支持，下面的几个源码编译时，python的版本必须统一。
 
 Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源码编译的时候要用这个。
 
-编译ncurses源码http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gzopen a cygwin termin">
+编译ncurses源码http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gzopen">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim配置-源码编译篇">
 <meta property="og:url" content="http://sun-is.me/2016/04/17/20160417_sun_VimComplie/index.html">
 <meta property="og:site_name" content="SLG BLOG">
-<meta property="og:description" content="安装python果然如果需要python支持，下面的几个源码编译时，python的版本必须统一。
+<meta property="og:description" content="详细记录了源码编译Vim的过程。
+安装python果然如果需要python支持，下面的几个源码编译时，python的版本必须统一。
 
 Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源码编译的时候要用这个。
 
-编译ncurses源码http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gzopen a cygwin termin">
-<meta property="og:updated_time" content="2016-04-20T14:20:45.740Z">
+编译ncurses源码http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gzopen">
+<meta property="og:updated_time" content="2016-05-02T09:19:16.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim配置-源码编译篇">
-<meta name="twitter:description" content="安装python果然如果需要python支持，下面的几个源码编译时，python的版本必须统一。
+<meta name="twitter:description" content="详细记录了源码编译Vim的过程。
+安装python果然如果需要python支持，下面的几个源码编译时，python的版本必须统一。
 
 Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源码编译的时候要用这个。
 
-编译ncurses源码http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gzopen a cygwin termin">
+编译ncurses源码http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gzopen">
 
 
 
@@ -267,6 +270,25 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -289,7 +311,7 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
       
 
       
-        <hr>
+        <h1 id="详细记录了源码编译Vim的过程。"><a href="#详细记录了源码编译Vim的过程。" class="headerlink" title="详细记录了源码编译Vim的过程。"></a>详细记录了源码编译Vim的过程。</h1><hr>
 <h1 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h1><p>果然如果需要python支持，下面的几个源码编译时，python的版本必须统一。</p>
 <hr>
 <h1 id="Install-gmp-package"><a href="#Install-gmp-package" class="headerlink" title="Install gmp package"></a>Install gmp package</h1><p>用cygwin自带的setup-x86.exe安装gmp相关的包。vim源码编译的时候要用这个。</p>
@@ -338,7 +360,7 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
       
         <div class="post-tags">
           
-            <a href="/tags/工具/" rel="tag">#工具</a>
+            <a href="/tags/Vim/" rel="tag">#Vim</a>
           
         </div>
       
@@ -431,11 +453,18 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -464,7 +493,7 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装python"><span class="nav-number">1.</span> <span class="nav-text">安装python</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-gmp-package"><span class="nav-number">2.</span> <span class="nav-text">Install gmp package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译ncurses源码"><span class="nav-number">3.</span> <span class="nav-text">编译ncurses源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译lua源码"><span class="nav-number">4.</span> <span class="nav-text">编译lua源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译vim源码"><span class="nav-number">5.</span> <span class="nav-text">编译vim源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看是否有-lua"><span class="nav-number">6.</span> <span class="nav-text">查看是否有+lua</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可能出现的问题"><span class="nav-number">7.</span> <span class="nav-text">可能出现的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#not-found-lua-h"><span class="nav-number">7.1.</span> <span class="nav-text">not found lua.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim源码的bug"><span class="nav-number">7.2.</span> <span class="nav-text">vim源码的bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Todo"><span class="nav-number">8.</span> <span class="nav-text">Todo</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#详细记录了源码编译Vim的过程。"><span class="nav-number">1.</span> <span class="nav-text">详细记录了源码编译Vim的过程。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装python"><span class="nav-number">2.</span> <span class="nav-text">安装python</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-gmp-package"><span class="nav-number">3.</span> <span class="nav-text">Install gmp package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译ncurses源码"><span class="nav-number">4.</span> <span class="nav-text">编译ncurses源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译lua源码"><span class="nav-number">5.</span> <span class="nav-text">编译lua源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译vim源码"><span class="nav-number">6.</span> <span class="nav-text">编译vim源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看是否有-lua"><span class="nav-number">7.</span> <span class="nav-text">查看是否有+lua</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可能出现的问题"><span class="nav-number">8.</span> <span class="nav-text">可能出现的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#not-found-lua-h"><span class="nav-number">8.1.</span> <span class="nav-text">not found lua.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim源码的bug"><span class="nav-number">8.2.</span> <span class="nav-text">vim源码的bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Todo"><span class="nav-number">9.</span> <span class="nav-text">Todo</span></a></li></ol></div>
             
           </div>
         </section>

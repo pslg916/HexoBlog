@@ -1,8 +1,11 @@
 ---
 title: Build Assimp from Src Code
 date: 2016-05-01 00:33:20
-tags: CG
+tags: Assimp
+categories: CG
 ---
+
+Draft for Assimp buliding.
 
 ------
 

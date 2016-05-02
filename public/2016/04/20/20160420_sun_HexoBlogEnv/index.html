@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="环境," />
+  <meta name="keywords" content="Hexo," />
 
 
 
@@ -80,38 +80,44 @@
 
 
 
-<meta name="description" content="本地生成RSA Key，拷贝至VPS，无密码登录Step1 本地创建RSA Key Pair1ssh-keygen -t rsa
+<meta name="description" content="Hexo在VPS上部署的笔记。
+
+本地生成RSA Key，拷贝至VPS，无密码登录Step1 本地创建RSA Key Pair1ssh-keygen -t rsa
 
 -t type
 指定要创建的密钥类型。可以使用：”rsa1”(SSH-1) “rsa”(SSH-2) “dsa”(SSH-2)
 
 
 
-Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问题：1Enter file in which to save t">
+Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问题：1Enter file in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo在VPS上用Git Hook部署">
 <meta property="og:url" content="http://sun-is.me/2016/04/20/20160420_sun_HexoBlogEnv/index.html">
 <meta property="og:site_name" content="SLG BLOG">
-<meta property="og:description" content="本地生成RSA Key，拷贝至VPS，无密码登录Step1 本地创建RSA Key Pair1ssh-keygen -t rsa
+<meta property="og:description" content="Hexo在VPS上部署的笔记。
+
+本地生成RSA Key，拷贝至VPS，无密码登录Step1 本地创建RSA Key Pair1ssh-keygen -t rsa
 
 -t type
 指定要创建的密钥类型。可以使用：”rsa1”(SSH-1) “rsa”(SSH-2) “dsa”(SSH-2)
 
 
 
-Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问题：1Enter file in which to save t">
+Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问题：1Enter file in">
 <meta property="og:image" content="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQL3gkKlCzKAnBJjdy9vCLnEciVZ4LY3Euu9yya-gVFImPsB4xlfw">
-<meta property="og:updated_time" content="2016-04-20T16:06:39.616Z">
+<meta property="og:updated_time" content="2016-05-02T10:45:51.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo在VPS上用Git Hook部署">
-<meta name="twitter:description" content="本地生成RSA Key，拷贝至VPS，无密码登录Step1 本地创建RSA Key Pair1ssh-keygen -t rsa
+<meta name="twitter:description" content="Hexo在VPS上部署的笔记。
+
+本地生成RSA Key，拷贝至VPS，无密码登录Step1 本地创建RSA Key Pair1ssh-keygen -t rsa
 
 -t type
 指定要创建的密钥类型。可以使用：”rsa1”(SSH-1) “rsa”(SSH-2) “dsa”(SSH-2)
 
 
 
-Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问题：1Enter file in which to save t">
+Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问题：1Enter file in">
 <meta name="twitter:image" content="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQL3gkKlCzKAnBJjdy9vCLnEciVZ4LY3Euu9yya-gVFImPsB4xlfw">
 
 
@@ -278,6 +284,25 @@ Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问�
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -300,7 +325,8 @@ Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问�
       
 
       
-        <hr>
+        <p>Hexo在VPS上部署的笔记。</p>
+<hr>
 <h1 id="本地生成RSA-Key，拷贝至VPS，无密码登录"><a href="#本地生成RSA-Key，拷贝至VPS，无密码登录" class="headerlink" title="本地生成RSA Key，拷贝至VPS，无密码登录"></a>本地生成RSA Key，拷贝至VPS，无密码登录</h1><h2 id="Step1-本地创建RSA-Key-Pair"><a href="#Step1-本地创建RSA-Key-Pair" class="headerlink" title="Step1 本地创建RSA Key Pair"></a>Step1 本地创建RSA Key Pair</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 <ul>
 <li>-t type<ul>
@@ -315,7 +341,6 @@ Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问�
 <p>私有key是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/demo/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
 <h2 id="Step3-拷贝共有key至VPS"><a href="#Step3-拷贝共有key至VPS" class="headerlink" title="Step3 拷贝共有key至VPS"></a>Step3 拷贝共有key至VPS</h2><p>通过ssh-copy-id可以拷贝共有key至VPS<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id user@123.45.56.78</span><br></pre></td></tr></table></figure></p>
 <p>如果没有ssh-copy-id，比如mac osx，可以通过下面的方法安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/install.sh | sh</span><br></pre></td></tr></table></figure></p>
-<hr>
 <p>执行ssh-copy-id命令后，会出现如下结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">The authenticity of host &apos;12.34.56.78 (12.34.56.78)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is b1:2d:33:67:ce:35:4d:5f:f3:a8:cd:c0:c4:48:86:12.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;12.34.56.78&apos; (RSA) to the list of known hosts.</span><br><span class="line">user@12.34.56.78&apos;s password:</span><br><span class="line">Now try logging into the machine, with &quot;ssh &apos;user@12.34.56.78&apos;&quot;, and check in:</span><br><span class="line"></span><br><span class="line">  ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line">to make sure we haven&apos;t added extra keys that you weren&apos;t expecting.</span><br></pre></td></tr></table></figure></p>
 <p>现在就可已通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh user@12.34.56.78</span><br></pre></td></tr></table></figure></p>
 <p>无密码登录VPS了。</p>
@@ -323,6 +348,7 @@ Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问�
 <p>然后修改配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure></p>
 <p>找到PermitRootLogin所在处，并修改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin without-password</span><br></pre></td></tr></table></figure></p>
 <p>最后，重载ssh<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reload ssh</span><br></pre></td></tr></table></figure></p>
+<hr>
 <h1 id="VPS新建空Git-Repo，用Hook在push时部署"><a href="#VPS新建空Git-Repo，用Hook在push时部署" class="headerlink" title="VPS新建空Git Repo，用Hook在push时部署"></a>VPS新建空Git Repo，用Hook在push时部署</h1><h2 id="VPS新建空Blog-Git-Repo"><a href="#VPS新建空Blog-Git-Repo" class="headerlink" title="VPS新建空Blog Git Repo"></a>VPS新建空Blog Git Repo</h2><p>创建静态blog目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /var/www/blog</span><br></pre></td></tr></table></figure></p>
 <p>创建git repo目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /var/www/repo</span><br></pre></td></tr></table></figure></p>
 <p>进入repo目录，初始化空repo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd /var/www/repo</span><br><span class="line">git init --bare</span><br><span class="line">tree -L 1 repo</span><br><span class="line">    repo/</span><br><span class="line">    ├── branches</span><br><span class="line">    ├── config</span><br><span class="line">    ├── description</span><br><span class="line">    ├── HEAD</span><br><span class="line">    ├── hooks</span><br><span class="line">    ├── index</span><br><span class="line">    ├── info</span><br><span class="line">    ├── objects</span><br><span class="line">    └── refs</span><br></pre></td></tr></table></figure></p>
@@ -379,7 +405,7 @@ Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问�
       
         <div class="post-tags">
           
-            <a href="/tags/环境/" rel="tag">#环境</a>
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
           
         </div>
       
@@ -472,11 +498,18 @@ Step2 存储Keys并设置密码(可选)第一步结束后，会出现下述问�
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

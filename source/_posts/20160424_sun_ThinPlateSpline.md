@@ -1,8 +1,11 @@
 ---
 title: Thin Plate Spline
 date: 2016-04-24 18:05:32
-tags: 数学
+tags: TPS
+categories: 数学
 ---
+
+非刚体形变常用算法。
 
 ------
 

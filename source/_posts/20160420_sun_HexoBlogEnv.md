@@ -1,8 +1,11 @@
 ---
 title: Hexo在VPS上用Git Hook部署
 date: 2016-04-20 23:23:50
-tags: 环境
+tags: Hexo
+categories: 工具
 ---
+
+Hexo在VPS上部署的笔记。
 
 ------
 
@@ -66,7 +69,7 @@ ssh-copy-id user@123.45.56.78
 ```shell
 curl -L https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/install.sh | sh
 ```
-------
+
 执行ssh-copy-id命令后，会出现如下结果
 ```shell
 The authenticity of host '12.34.56.78 (12.34.56.78)' can't be established.
@@ -103,6 +106,8 @@ PermitRootLogin without-password
 ```shell
 reload ssh
 ```
+
+------
 
 # VPS新建空Git Repo，用Hook在push时部署
 

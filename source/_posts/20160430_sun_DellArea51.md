@@ -1,8 +1,11 @@
 ---
 title: 新起点，Area51到货
 date: 2016-04-30 15:32:29
-tags: 工具
+tags: GPU
+categories: 工具
 ---
+
+新入手的GTX970的GPU。
 
 ------
 

@@ -1,9 +1,11 @@
 ---
 title: Vim配置-源码编译篇
 date: 2016-04-17 23:12:42
-tags: 工具
+tags: Vim
+categories: 工具
 ---
 
+# 详细记录了源码编译Vim的过程。
 
 ------
 
