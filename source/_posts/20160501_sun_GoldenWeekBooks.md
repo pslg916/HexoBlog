@@ -53,12 +53,10 @@ categories: 读书
 
 ------
 
-# 代码：DX11 Tutorial
+# 代码：两个DX11 Tutorial
 
-- 一个较为完整的基于Win32API的Engin框架。
-- 非常便于扩展。
-- 可以用来完成自己的Engin，然后写一个C++版的HM。
-- 链接：http://www.rastertek.com/tutdx11s2.html
+- 链接1：http://www.directxtutorial.com/， 侧重细节
+- 链接2：http://www.rastertek.com/tutdx11s2.html， 侧重设计
 
 ------
 
