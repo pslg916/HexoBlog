@@ -1,5 +1,5 @@
 ---
-title: 新しい骨をMakeHuamnモデルに入れ込む
+title: 新しい骨をMakeHumanモデルに入れ込む
 date: 2016-05-28 11:04:20
 tags: blender
 categories: CG
