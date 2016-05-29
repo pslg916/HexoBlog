@@ -81,33 +81,18 @@
 
 
 <meta name="description" content="学习用，不断更新中。
-```cWinMain
-SystemClass* System-&amp;gt;Initialize()
-
-    SystemClass::InitializeWindwos()  // fullScreen?  init and run windows
-
-    InputClass* m_Input-&amp;gt;Initialize()  // m_keys[0~255] = fa">
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DX11 APP Framework">
 <meta property="og:url" content="http://sun-is.me/2016/05/29/20160529_sun_DXGE_Framework/index.html">
 <meta property="og:site_name" content="SLG BLOG">
 <meta property="og:description" content="学习用，不断更新中。
-```cWinMain
-SystemClass* System-&amp;gt;Initialize()
-
-    SystemClass::InitializeWindwos()  // fullScreen?  init and run windows
-
-    InputClass* m_Input-&amp;gt;Initialize()  // m_keys[0~255] = fa">
-<meta property="og:updated_time" content="2016-05-29T12:40:51.907Z">
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
+<meta property="og:updated_time" content="2016-05-29T12:42:11.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DX11 APP Framework">
 <meta name="twitter:description" content="学习用，不断更新中。
-```cWinMain
-SystemClass* System-&amp;gt;Initialize()
-
-    SystemClass::InitializeWindwos()  // fullScreen?  init and run windows
-
-    InputClass* m_Input-&amp;gt;Initialize()  // m_keys[0~255] = fa">
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
 
 
 
@@ -315,182 +300,7 @@ SystemClass* System-&amp;gt;Initialize()
 
       
         <p>学习用，不断更新中。</p>
-<p>```c<br>WinMain</p>
-<pre><code>SystemClass* System-&gt;Initialize()
-
-    SystemClass::InitializeWindwos()  // fullScreen?  init and run windows
-
-    InputClass* m_Input-&gt;Initialize()  // m_keys[0~255] = false
-
-    GraphicsClass* m_Graphics-&gt;Initialize()
-
-        D3DClass* m_Direct3D-&gt;Initializae()
-
-            bool InitRefreshRate(bool, int, int);
-
-        bool GraphicsClass::CreateSwapChainAndDev(int, int, bool, HWND);
-
-            D3D11CreateDeviceAndSwapChain()
-
-        bool GraphicsClass::CreateBackBuffer();
-
-            IDXGISwapChain* m_swapChain-&gt;GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&amp;backBufferPtr)
-            ID3D11Device* m_device-&gt;CreateRenderTargetView(backBufferPtr, NULL, &amp;m_renderTargetView);
-
-
-        bool GraphicsClass::CreateDepthBuffer(int, int);
-
-            ID3D11Device* m_device-&gt;CreateTexture2D(&amp;depthBufferDesc, NULL, &amp;m_depthStencilBuffer);
-
-        bool GraphicsClass::CreateDepthStenci();
-
-            ID3D11Device* m_device-&gt;CreateDepthStencilState(&amp;depthStencilDesc, &amp;m_depthStencilState);
-            ID3D11DeviceContext* m_deviceContext-&gt;OMSetDepthStencilState(m_depthStencilState, 1);
-            ID3D11Device* m_device-&gt;CreateDepthStencilView(m_depthStencilBuffer, &amp;depthStencilViewDesc, &amp;m_depthStencilView);
-            ID3D11DeviceContext* m_deviceContext-&gt;OMSetRenderTargets(1, &amp;m_renderTargetView, m_depthStencilView);
-
-
-        bool GraphicsClass::CreateRasterizer();
-
-            D3D11_RASTERIZER_DESC rasterDesc.FillMode = D3D11_FILL_SOLID or D3D11_FILL_WIREFRAME
-            ID3D11Device* m_device-&gt;CreateRasterizerState(&amp;rasterDesc, &amp;m_rasterState);
-            ID3D11DeviceContext* m_deviceContext-&gt;RSSetState(m_rasterState);
-
-        bool GraphicsClass::CreateRenderMatrix(int, int, float, float);
-
-            D3D11_VIEWPORT viewport;
-            float fieldOfView = 3.141592654f / 4.0f;
-            float screenAspect = (float)screenWidth / (float)screenHeight;
-            m_projectionMatrix = XMMatrixPerspectiveFovLH(fieldOfView, screenAspect, screenNear, screenDepth);
-            m_worldMatrix = XMMatrixIdentity();
-            m_orthoMatrix = XMMatrixOrthographicLH((float)screenWidth, (float)screenHeight, screenNear, screenDepth);
-
-        CameraClass* m_Camera-&gt;SetPosition()
-
-        ModelClass* m_Model-&gt;Initialize()
-
-            ModelClass::InitializeBuffers(device);
-
-                vertices = new VertexType[m_vertexCount];
-                indices = new unsigned long[m_indexCount];
-                D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
-                ID3D11Device* device-&gt;CreateBuffer(&amp;vertexBufferDesc, &amp;vertexData, &amp;m_vertexBuffer);
-                ID3D11Device* device-&gt;CreateBuffer(&amp;indexBufferDesc, &amp;indexData, &amp;m_indexBuffer);
-
-            ModelClass::LoadTexture(device, deviceContext, textureFilename);
-
-                TextureClass* m_Texture-&gt;Initialize(device, deviceContext, filename);
-                ID3D11Device* device-&gt;CreateTexture2D(&amp;textureDesc, NULL, &amp;m_texture);  // Create the empty texture.
-                ID3D11DeviceContext* deviceContext-&gt;UpdateSubresource(m_texture, 0, NULL, m_targaData, rowPitch, 0);  // Copy the targa image data into the texture.
-                ID3D11Device* device-&gt;CreateShaderResourceView(m_texture, &amp;srvDesc, &amp;m_textureView);  // Create the shader resource view for the texture.
-                ID3D11DeviceContext* deviceContext-&gt;GenerateMips(m_textureView);  // Generate mipmaps for this texture.
-
-        TextureShaderClass* m_TextureShader-&gt;Initialize()
-
-            TextureShaderClass::InitializeShader(device, hwnd, L&quot;../source/textureVS.hlsl&quot;, L&quot;../source/texturePS.hlsl&quot;);
-
-                D3DCompileFromFile(vsFilename, NULL, NULL, &quot;TextureVertexShader&quot;, &quot;vs_5_0&quot;, D3D10_SHADER_ENABLE_STRICTNESS, 0, &amp;vertexShaderBuffer, &amp;errorMessage);
-                D3DCompileFromFile(psFilename, NULL, NULL, &quot;TexturePixelShader&quot;, &quot;ps_5_0&quot;, D3D10_SHADER_ENABLE_STRICTNESS, 0, &amp;pixelShaderBuffer, &amp;errorMessage);
-                ID3D11Device* device-&gt;CreateVertexShader(vertexShaderBuffer-&gt;GetBufferPointer(), vertexShaderBuffer-&gt;GetBufferSize(), NULL, &amp;m_vertexShader);
-                ID3D11Device* device-&gt;CreatePixelShader(pixelShaderBuffer-&gt;GetBufferPointer(), pixelShaderBuffer-&gt;GetBufferSize(), NULL, &amp;m_pixelShader);
-
-                // Create the vertex input layout description.
-                // This setup needs to match the VertexType stucture in the ModelClass and in the shader.
-                D3D11_INPUT_ELEMENT_DESC polygonLayout[2];  // SemanticName, Format, AlignedByteOffset...
-                ID3D11Device* device-&gt;CreateInputLayout(polygonLayout, numElements, vertexShaderBuffer-&gt;GetBufferPointer(), vertexShaderBuffer-&gt;GetBufferSize(), &amp;m_layout);  // // Create the vertex input layout.
-
-
-                // Setup the description of the dynamic matrix constant buffer that is in the vertex shader.
-                D3D11_BUFFER_DESC matrixBufferDesc;  // Usage, ByteWidth, BindFlags, CPUAccessFlags...
-                D3D11Device* device-&gt;CreateBuffer(&amp;matrixBufferDesc, NULL, &amp;m_matrixBuffer);  // Create the constant buffer pointer so we can access the vertex shader constant buffer from within this class.
-
-                // Create a texture sampler state description.
-                D3D11_SAMPLER_DESC samplerDesc;
-                D3D11Device* device-&gt;CreateSamplerState(&amp;samplerDesc, &amp;m_sampleState);  // Create the texture sampler state.
-
-SystemClass* System-&gt;Run()
-
-        SystemClass::Frame();
-
-            if(m_Input-&gt;IsKeyDown(VK_ESCAPE))
-
-            GraphicsClass* m_Graphics-&gt;Frame();  // Do the frame processing for the graphics object.
-
-                GraphicsClass::Render()
-
-                    // Clear the buffers to begin the scene.
-                    D3DClass* m_Direct3D-&gt;BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
-
-                        ID3D11DeviceContext* m_deviceContext-&gt;ClearRenderTargetView(m_renderTargetView, color);  // Clear the back buffer.
-                        ID3D11DeviceContext* m_deviceContext-&gt;ClearDepthStencilView(m_depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);  // Clear the depth buffer.
-
-                    // Generate the view matrix based on the camera&apos;s position.
-                    CameraClass* m_Camera-&gt;Render();
-
-                        // Setup the vector that points upwards.
-                        // Load it into a XMVECTOR structure.
-                        // Setup the position of the camera in the world.
-                        // Load it into a XMVECTOR structure.
-                        // Setup where the camera is looking by default.
-                        // Load it into a XMVECTOR structure.
-                        // Set the yaw (Y axis), pitch (X axis), and roll (Z axis) rotations in radians.
-                        // Create the rotation matrix from the yaw, pitch, and roll values.
-                        // Transform the lookAt and up vector by the rotation matrix so the view is correctly rotated at the origin.
-                        // Translate the rotated camera position to the location of the viewer.
-                        // Finally create the view matrix from the three updated vectors.
-
-                    // Get the world, view, and projection matrices from the camera and d3d objects.
-                    D3DClass* m_Direct3D-&gt;GetWorldMatrix(worldMatrix);
-                    CameraClass* m_Camera-&gt;GetViewMatrix(viewMatrix);
-                    D3DClass* m_Direct3D-&gt;GetProjectionMatrix(projectionMatrix);
-
-                    // Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
-                    ModelClass* m_Model-&gt;Render(m_Direct3D-&gt;GetDeviceContext());
-
-                        // Put the vertex and index buffers on the graphics pipeline to prepare them for drawing.
-                        ModelClass::RenderBuffers(deviceContext);
-
-                            // Set the vertex buffer to active in the input assembler so it can be rendered.
-                            ID3D11DeviceContext* deviceContext-&gt;IASetVertexBuffers(0, 1, &amp;m_vertexBuffer, &amp;stride, &amp;offset);
-                            // Set the index buffer to active in the input assembler so it can be rendered.
-                            ID3D11DeviceContext* deviceContext-&gt;IASetIndexBuffer(m_indexBuffer, DXGI_FORMAT_R32_UINT, 0);
-                            // Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.
-                            ID3D11DeviceContext* deviceContext-&gt;IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
-
-                    // Render the model using the texture shader.
-                    TextureShaderClass* m_TextureShader-&gt;Render(m_Direct3D-&gt;GetDeviceContext(), m_Model-&gt;GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, m_Model-&gt;GetTexture());
-
-                        TextureShaderClass::SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, texture)
-
-                            // Lock the constant buffer so it can be written to.
-                            ID3D11DeviceContext* deviceContext-&gt;Map(m_matrixBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &amp;mappedResource);
-                            // Get a pointer to the data in the constant buffer.
-                            dataPtr = (MatrixBufferType*)mappedResource.pData;
-                            // Copy the matrices into the constant buffer.
-                            // Unlock the constant buffer.
-                            ID3D11DeviceContext* deviceContext-&gt;Unmap(m_matrixBuffer, 0);
-                            // Finanly set the constant buffer in the vertex shader with the updated values.
-                            ID3D11DeviceContext* deviceContext-&gt;VSSetConstantBuffers(bufferNumber, 1, &amp;m_matrixBuffer);
-                            // Set shader texture resource in the pixel shader.
-                            ID3D11DeviceContext* deviceContext-&gt;PSSetShaderResources(0, 1, &amp;texture);
-
-                        TextureShaderClass::RenderShader(deviceContext, indexCount);
-
-                            // Set the vertex input layout.
-                            ID3D11DeviceContext* deviceContext-&gt;IASetInputLayout(m_layout);
-                            // Set the vertex and pixel shaders that will be used to render this triangle.
-                            ID3D11DeviceContext* deviceContext-&gt;VSSetShader(m_vertexShader, NULL, 0);
-                            ID3D11DeviceContext* deviceContext-&gt;PSSetShader(m_pixelShader, NULL, 0);
-                            // Set the sampler state in the pixel shader.
-                            ID3D11DeviceContext* deviceContext-&gt;PSSetSamplers(0, 1, &amp;m_sampleState);
-                            // Render the triangle.
-                            ID3D11DeviceContext* deviceContext-&gt;DrawIndexed(indexCount, 0, 0);
-
-                    // Present the back buffer to the screen since rendering is complete.
-                    D3DClass* m_Direct3D-&gt;EndScene();
-                        if (m_vsync_enabled)    IDXGISwapChain* m_swapChain-&gt;Present(1, 0);  // Lock to screen refresh rate.
-                        else                    IDXGISwapChain* m_swapChain-&gt;Present(0, 0);  // Present as fast as possible.
-</code></pre><p>System-&gt;Shutdown()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br></pre></td><td class="code"><pre><span class="line">WinMain</span><br><span class="line"></span><br><span class="line">    SystemClass* System-&gt;Initialize()</span><br><span class="line"></span><br><span class="line">        SystemClass::InitializeWindwos()  <span class="comment">// fullScreen?  init and run windows</span></span><br><span class="line"></span><br><span class="line">        InputClass* m_Input-&gt;Initialize()  <span class="comment">// m_keys[0~255] = false</span></span><br><span class="line"></span><br><span class="line">        GraphicsClass* m_Graphics-&gt;Initialize()</span><br><span class="line"></span><br><span class="line">            D3DClass* m_Direct3D-&gt;Initializae()</span><br><span class="line"></span><br><span class="line">                <span class="function"><span class="keyword">bool</span> <span class="title">InitRefreshRate</span><span class="params">(<span class="keyword">bool</span>, <span class="keyword">int</span>, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">bool</span> GraphicsClass::CreateSwapChainAndDev(<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">bool</span>, HWND);</span><br><span class="line"></span><br><span class="line">                D3D11CreateDeviceAndSwapChain()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">bool</span> GraphicsClass::CreateBackBuffer();</span><br><span class="line"></span><br><span class="line">                IDXGISwapChain* m_swapChain-&gt;GetBuffer(<span class="number">0</span>, __uuidof(ID3D11Texture2D), (LPVOID*)&amp;backBufferPtr)</span><br><span class="line">                ID3D11Device* m_device-&gt;CreateRenderTargetView(backBufferPtr, <span class="literal">NULL</span>, &amp;m_renderTargetView);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">bool</span> GraphicsClass::CreateDepthBuffer(<span class="keyword">int</span>, <span class="keyword">int</span>);</span><br><span class="line"></span><br><span class="line">                ID3D11Device* m_device-&gt;CreateTexture2D(&amp;depthBufferDesc, <span class="literal">NULL</span>, &amp;m_depthStencilBuffer);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">bool</span> GraphicsClass::CreateDepthStenci();</span><br><span class="line"></span><br><span class="line">                ID3D11Device* m_device-&gt;CreateDepthStencilState(&amp;depthStencilDesc, &amp;m_depthStencilState);</span><br><span class="line">                ID3D11DeviceContext* m_deviceContext-&gt;OMSetDepthStencilState(m_depthStencilState, <span class="number">1</span>);</span><br><span class="line">                ID3D11Device* m_device-&gt;CreateDepthStencilView(m_depthStencilBuffer, &amp;depthStencilViewDesc, &amp;m_depthStencilView);</span><br><span class="line">                ID3D11DeviceContext* m_deviceContext-&gt;OMSetRenderTargets(<span class="number">1</span>, &amp;m_renderTargetView, m_depthStencilView);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">bool</span> GraphicsClass::CreateRasterizer();</span><br><span class="line"></span><br><span class="line">                D3D11_RASTERIZER_DESC rasterDesc.FillMode = D3D11_FILL_SOLID or D3D11_FILL_WIREFRAME</span><br><span class="line">                ID3D11Device* m_device-&gt;CreateRasterizerState(&amp;rasterDesc, &amp;m_rasterState);</span><br><span class="line">                ID3D11DeviceContext* m_deviceContext-&gt;RSSetState(m_rasterState);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">bool</span> GraphicsClass::CreateRenderMatrix(<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">float</span>, <span class="keyword">float</span>);</span><br><span class="line"></span><br><span class="line">                D3D11_VIEWPORT viewport;</span><br><span class="line">                <span class="keyword">float</span> fieldOfView = <span class="number">3.141592654f</span> / <span class="number">4.0f</span>;</span><br><span class="line">                <span class="keyword">float</span> screenAspect = (float)screenWidth / (float)screenHeight;</span><br><span class="line">                m_projectionMatrix = XMMatrixPerspectiveFovLH(fieldOfView, screenAspect, screenNear, screenDepth);</span><br><span class="line">                m_worldMatrix = XMMatrixIdentity();</span><br><span class="line">                m_orthoMatrix = XMMatrixOrthographicLH((float)screenWidth, (float)screenHeight, screenNear, screenDepth);</span><br><span class="line"></span><br><span class="line">            CameraClass* m_Camera-&gt;SetPosition()</span><br><span class="line"></span><br><span class="line">            ModelClass* m_Model-&gt;Initialize()</span><br><span class="line"></span><br><span class="line">                ModelClass::InitializeBuffers(device);</span><br><span class="line"></span><br><span class="line">                    vertices = new VertexType[m_vertexCount];</span><br><span class="line">                    indices = new <span class="keyword">unsigned</span> <span class="keyword">long</span>[m_indexCount];</span><br><span class="line">                    D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;</span><br><span class="line">                    ID3D11Device* device-&gt;CreateBuffer(&amp;vertexBufferDesc, &amp;vertexData, &amp;m_vertexBuffer);</span><br><span class="line">                    ID3D11Device* device-&gt;CreateBuffer(&amp;indexBufferDesc, &amp;indexData, &amp;m_indexBuffer);</span><br><span class="line"></span><br><span class="line">                ModelClass::LoadTexture(device, deviceContext, textureFilename);</span><br><span class="line"></span><br><span class="line">                    TextureClass* m_Texture-&gt;Initialize(device, deviceContext, filename);</span><br><span class="line">                    ID3D11Device* device-&gt;CreateTexture2D(&amp;textureDesc, <span class="literal">NULL</span>, &amp;m_texture);  <span class="comment">// Create the empty texture.</span></span><br><span class="line">                    ID3D11DeviceContext* deviceContext-&gt;UpdateSubresource(m_texture, <span class="number">0</span>, <span class="literal">NULL</span>, m_targaData, rowPitch, <span class="number">0</span>);  <span class="comment">// Copy the targa image data into the texture.</span></span><br><span class="line">                    ID3D11Device* device-&gt;CreateShaderResourceView(m_texture, &amp;srvDesc, &amp;m_textureView);  <span class="comment">// Create the shader resource view for the texture.</span></span><br><span class="line">                    ID3D11DeviceContext* deviceContext-&gt;GenerateMips(m_textureView);  <span class="comment">// Generate mipmaps for this texture.</span></span><br><span class="line"></span><br><span class="line">            TextureShaderClass* m_TextureShader-&gt;Initialize()</span><br><span class="line"></span><br><span class="line">                TextureShaderClass::InitializeShader(device, hwnd, <span class="string">L"../source/textureVS.hlsl"</span>, <span class="string">L"../source/texturePS.hlsl"</span>);</span><br><span class="line"></span><br><span class="line">                    D3DCompileFromFile(vsFilename, <span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="string">"TextureVertexShader"</span>, <span class="string">"vs_5_0"</span>, D3D10_SHADER_ENABLE_STRICTNESS, <span class="number">0</span>, &amp;vertexShaderBuffer, &amp;errorMessage);</span><br><span class="line">                    D3DCompileFromFile(psFilename, <span class="literal">NULL</span>, <span class="literal">NULL</span>, <span class="string">"TexturePixelShader"</span>, <span class="string">"ps_5_0"</span>, D3D10_SHADER_ENABLE_STRICTNESS, <span class="number">0</span>, &amp;pixelShaderBuffer, &amp;errorMessage);</span><br><span class="line">                    ID3D11Device* device-&gt;CreateVertexShader(vertexShaderBuffer-&gt;GetBufferPointer(), vertexShaderBuffer-&gt;GetBufferSize(), <span class="literal">NULL</span>, &amp;m_vertexShader);</span><br><span class="line">                    ID3D11Device* device-&gt;CreatePixelShader(pixelShaderBuffer-&gt;GetBufferPointer(), pixelShaderBuffer-&gt;GetBufferSize(), <span class="literal">NULL</span>, &amp;m_pixelShader);</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Create the vertex input layout description.</span></span><br><span class="line">                    <span class="comment">// This setup needs to match the VertexType stucture in the ModelClass and in the shader.</span></span><br><span class="line">                    D3D11_INPUT_ELEMENT_DESC polygonLayout[<span class="number">2</span>];  <span class="comment">// SemanticName, Format, AlignedByteOffset...</span></span><br><span class="line">                    ID3D11Device* device-&gt;CreateInputLayout(polygonLayout, numElements, vertexShaderBuffer-&gt;GetBufferPointer(), vertexShaderBuffer-&gt;GetBufferSize(), &amp;m_layout);  <span class="comment">// // Create the vertex input layout.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Setup the description of the dynamic matrix constant buffer that is in the vertex shader.</span></span><br><span class="line">                    D3D11_BUFFER_DESC matrixBufferDesc;  <span class="comment">// Usage, ByteWidth, BindFlags, CPUAccessFlags...</span></span><br><span class="line">                    D3D11Device* device-&gt;CreateBuffer(&amp;matrixBufferDesc, <span class="literal">NULL</span>, &amp;m_matrixBuffer);  <span class="comment">// Create the constant buffer pointer so we can access the vertex shader constant buffer from within this class.</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// Create a texture sampler state description.</span></span><br><span class="line">                    D3D11_SAMPLER_DESC samplerDesc;</span><br><span class="line">                    D3D11Device* device-&gt;CreateSamplerState(&amp;samplerDesc, &amp;m_sampleState);  <span class="comment">// Create the texture sampler state.</span></span><br><span class="line"></span><br><span class="line">    SystemClass* System-&gt;Run()</span><br><span class="line"></span><br><span class="line">            SystemClass::Frame();</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(m_Input-&gt;IsKeyDown(VK_ESCAPE))</span><br><span class="line"></span><br><span class="line">                GraphicsClass* m_Graphics-&gt;Frame();  <span class="comment">// Do the frame processing for the graphics object.</span></span><br><span class="line"></span><br><span class="line">                    GraphicsClass::Render()</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// Clear the buffers to begin the scene.</span></span><br><span class="line">                        D3DClass* m_Direct3D-&gt;BeginScene(<span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">1.0f</span>);</span><br><span class="line"></span><br><span class="line">                            ID3D11DeviceContext* m_deviceContext-&gt;ClearRenderTargetView(m_renderTargetView, color);  <span class="comment">// Clear the back buffer.</span></span><br><span class="line">                            ID3D11DeviceContext* m_deviceContext-&gt;ClearDepthStencilView(m_depthStencilView, D3D11_CLEAR_DEPTH, <span class="number">1.0f</span>, <span class="number">0</span>);  <span class="comment">// Clear the depth buffer.</span></span><br><span class="line"></span><br><span class="line">                        <span class="comment">// Generate the view matrix based on the camera's position.</span></span><br><span class="line">                        CameraClass* m_Camera-&gt;Render();</span><br><span class="line"></span><br><span class="line">                            <span class="comment">// Setup the vector that points upwards.</span></span><br><span class="line">                            <span class="comment">// Load it into a XMVECTOR structure.</span></span><br><span class="line">                            <span class="comment">// Setup the position of the camera in the world.</span></span><br><span class="line">                            <span class="comment">// Load it into a XMVECTOR structure.</span></span><br><span class="line">                            <span class="comment">// Setup where the camera is looking by default.</span></span><br><span class="line">                            <span class="comment">// Load it into a XMVECTOR structure.</span></span><br><span class="line">                            <span class="comment">// Set the yaw (Y axis), pitch (X axis), and roll (Z axis) rotations in radians.</span></span><br><span class="line">                            <span class="comment">// Create the rotation matrix from the yaw, pitch, and roll values.</span></span><br><span class="line">                            <span class="comment">// Transform the lookAt and up vector by the rotation matrix so the view is correctly rotated at the origin.</span></span><br><span class="line">                            <span class="comment">// Translate the rotated camera position to the location of the viewer.</span></span><br><span class="line">                            <span class="comment">// Finally create the view matrix from the three updated vectors.</span></span><br><span class="line"></span><br><span class="line">                        <span class="comment">// Get the world, view, and projection matrices from the camera and d3d objects.</span></span><br><span class="line">                        D3DClass* m_Direct3D-&gt;GetWorldMatrix(worldMatrix);</span><br><span class="line">                        CameraClass* m_Camera-&gt;GetViewMatrix(viewMatrix);</span><br><span class="line">                        D3DClass* m_Direct3D-&gt;GetProjectionMatrix(projectionMatrix);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.</span></span><br><span class="line">                        ModelClass* m_Model-&gt;Render(m_Direct3D-&gt;GetDeviceContext());</span><br><span class="line"></span><br><span class="line">                            <span class="comment">// Put the vertex and index buffers on the graphics pipeline to prepare them for drawing.</span></span><br><span class="line">                            ModelClass::RenderBuffers(deviceContext);</span><br><span class="line"></span><br><span class="line">                                <span class="comment">// Set the vertex buffer to active in the input assembler so it can be rendered.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;IASetVertexBuffers(<span class="number">0</span>, <span class="number">1</span>, &amp;m_vertexBuffer, &amp;stride, &amp;offset);</span><br><span class="line">                                <span class="comment">// Set the index buffer to active in the input assembler so it can be rendered.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;IASetIndexBuffer(m_indexBuffer, DXGI_FORMAT_R32_UINT, <span class="number">0</span>);</span><br><span class="line">                                <span class="comment">// Set the type of primitive that should be rendered from this vertex buffer, in this case triangles.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// Render the model using the texture shader.</span></span><br><span class="line">                        TextureShaderClass* m_TextureShader-&gt;Render(m_Direct3D-&gt;GetDeviceContext(), m_Model-&gt;GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, m_Model-&gt;GetTexture());</span><br><span class="line"></span><br><span class="line">                            TextureShaderClass::SetShaderParameters(deviceContext, worldMatrix, viewMatrix, projectionMatrix, texture)</span><br><span class="line"></span><br><span class="line">                                <span class="comment">// Lock the constant buffer so it can be written to.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;Map(m_matrixBuffer, <span class="number">0</span>, D3D11_MAP_WRITE_DISCARD, <span class="number">0</span>, &amp;mappedResource);</span><br><span class="line">                                <span class="comment">// Get a pointer to the data in the constant buffer.</span></span><br><span class="line">                                dataPtr = (MatrixBufferType*)mappedResource.pData;</span><br><span class="line">                                <span class="comment">// Copy the matrices into the constant buffer.</span></span><br><span class="line">                                <span class="comment">// Unlock the constant buffer.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;Unmap(m_matrixBuffer, <span class="number">0</span>);</span><br><span class="line">                                <span class="comment">// Finanly set the constant buffer in the vertex shader with the updated values.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;VSSetConstantBuffers(bufferNumber, <span class="number">1</span>, &amp;m_matrixBuffer);</span><br><span class="line">                                <span class="comment">// Set shader texture resource in the pixel shader.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;PSSetShaderResources(<span class="number">0</span>, <span class="number">1</span>, &amp;texture);</span><br><span class="line"></span><br><span class="line">                            TextureShaderClass::RenderShader(deviceContext, indexCount);</span><br><span class="line"></span><br><span class="line">                                <span class="comment">// Set the vertex input layout.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;IASetInputLayout(m_layout);</span><br><span class="line">                                <span class="comment">// Set the vertex and pixel shaders that will be used to render this triangle.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;VSSetShader(m_vertexShader, <span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;PSSetShader(m_pixelShader, <span class="literal">NULL</span>, <span class="number">0</span>);</span><br><span class="line">                                <span class="comment">// Set the sampler state in the pixel shader.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;PSSetSamplers(<span class="number">0</span>, <span class="number">1</span>, &amp;m_sampleState);</span><br><span class="line">                                <span class="comment">// Render the triangle.</span></span><br><span class="line">                                ID3D11DeviceContext* deviceContext-&gt;DrawIndexed(indexCount, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">                        <span class="comment">// Present the back buffer to the screen since rendering is complete.</span></span><br><span class="line">                        D3DClass* m_Direct3D-&gt;EndScene();</span><br><span class="line">                            <span class="keyword">if</span> (m_vsync_enabled)    IDXGISwapChain* m_swapChain-&gt;Present(<span class="number">1</span>, <span class="number">0</span>);  <span class="comment">// Lock to screen refresh rate.</span></span><br><span class="line">                            <span class="keyword">else</span>                    IDXGISwapChain* m_swapChain-&gt;Present(<span class="number">0</span>, <span class="number">0</span>);  <span class="comment">// Present as fast as possible.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">System-&gt;Shutdown()</span><br></pre></td></tr></table></figure>
 
       
     </div>
