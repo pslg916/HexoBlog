@@ -2,7 +2,7 @@
 title: 过去的Django Blog
 date: 2016-04-18 21:20:31
 tags: Django
-categories: Web
+categories: 应用
 ---
 
 记录过去体验Django时搭的博客。
