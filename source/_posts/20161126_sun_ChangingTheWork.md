@@ -18,7 +18,7 @@ categories: CG
 这4年间，技术其实没学到啥，但是工作方法、思考方式大大的改变了，变的可以做比以前更复杂更大的工作了。
 
 
-![AF Tracking](../images/20161126_AFTracking.png)
+![AF Tracking](/images/20161126_AFTracking.png)
 (图片来至[Sony官方Youtube](https://www.youtube.com/watch?v=qZGmLf6o6Bc))
 
 # 社内调动
@@ -44,4 +44,4 @@ categories: CG
 
 尤其是，假想空间，有很多很深刻的东西可以挖掘，慢慢来吧。
 
-![sony challenge](../images/20161126_SonyChallenge.png)
+![sony challenge](/images/20161126_SonyChallenge.png)
