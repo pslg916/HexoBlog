@@ -1,7 +1,7 @@
 ---
 title: Win7开发环境配置
 date: 2016-04-17 15:50:42
-tags: 杂记
+tags: Cygwin
 categories: 工具
 ---
 

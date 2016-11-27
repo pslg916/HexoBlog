@@ -1,8 +1,8 @@
 ---
 title: What I want to do ...
 date: 2016-11-26 21:01:20
-tags: 杂记
-categories: 思考
+tags: 思考
+categories: 杂记
 ---
 
 -------------------------------------

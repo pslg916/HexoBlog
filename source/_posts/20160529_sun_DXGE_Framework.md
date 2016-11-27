@@ -1,8 +1,8 @@
 ---
 title: DX11 APP Framework
 date: 2016-05-29 21:39:56
-tags: GPU
-categories: CG
+tags: DX
+categories: 框架
 ---
 
 学习用，不断更新中。

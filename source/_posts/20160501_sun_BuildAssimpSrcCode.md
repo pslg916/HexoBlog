@@ -2,7 +2,7 @@
 title: Build Assimp from Src Code
 date: 2016-05-01 00:33:20
 tags: Assimp
-categories: CG
+categories: 框架
 ---
 
 Draft for Assimp buliding.

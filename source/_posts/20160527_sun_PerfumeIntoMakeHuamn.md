@@ -2,7 +2,7 @@
 title: 新しい骨をMakeHumanモデルに入れ込む
 date: 2016-05-28 11:04:20
 tags: blender
-categories: CG
+categories: 工具
 ---
 
 -------------------------------------
