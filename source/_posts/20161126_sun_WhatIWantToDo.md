@@ -15,6 +15,7 @@ categories: 杂记
 [4] C++重构HumanModel
 [5] OpenCL实现DL论文
 [6] 用Blender做出東北ずん子
-[7] 改善SEG分割算法
-[8] 实现Unity Shader
-[9] 做一个编辑器
+[7] 看完Youtube Blender视频。
+[8] 改善SEG分割算法
+[9] 实现Unity Shader
+[10] 做一个编辑器
