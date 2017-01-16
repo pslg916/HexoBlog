@@ -9,7 +9,7 @@ categories: 数学
 
 # Photon for Graphics People
 
-```
+```c
 photon = {energy, wavelength, polarization, time, position, direction}
 ```
 
@@ -21,7 +21,7 @@ This is not a photon as is meant in physics!
 2. very similar to "colors" see in a direction.
 3. radiometric quantites can be derived from rediance.
 
-```
+```c
 radiance = L(position, direction, wavelength, time)
 ```
 
