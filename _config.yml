@@ -91,9 +91,3 @@ math:
 
 # Author Photo
 avatar: /uploads/slg.jpg
-
-# add post views
-leancloud_visitors:
-  enable: true
-  app_id: kSjs9bkgAOD1EuDgPmk4bLN4-gzGzoHsz
-  app_key: uYN6X9kLWRsJKt9KnQfNSmW0
