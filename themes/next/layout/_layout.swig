@@ -72,5 +72,9 @@
   {% include '_scripts/third-party/lean-analytics.swig' %}
   {% include '_scripts/baidu-push.swig' %}
 
+  {% if theme.leancloud_visitors.enable %}
+  {% include '_scripts/lean-analytics.swig' %}
+  {% endif %}
+
 </body>
 </html>
