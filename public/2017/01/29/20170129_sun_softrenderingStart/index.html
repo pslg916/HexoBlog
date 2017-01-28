@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="CG," />
 
 
 
@@ -80,25 +80,46 @@
 
 
 
-<meta name="description" content="Install1npm install hexo-math --save
+<meta name="description" content="目的通过各种调研，花点时间写一个软件渲染的引擎是值得的。
 
-ConfigIn your site’s _config.yml:
-12345678910111213# MathJaxmath:  engine: &amp;apos;mathjax&amp;apos; # or &amp;apos;katex&amp;apos;  mathjax:    src: &amp;quot;//cdn.mathjax.org/m">
+可以了解现阶段高层图形API背后的细节。为今后着手Vulkan或者DX12做准备。
+去年开发人体模型时，主要集中在网格处理和骨骼动画，这次正好弥补一下其他的部分。
+为物理渲染和光线追踪做准备。
+
+基本原则
+只用3个库，矩阵运算相关，窗口绘制，输入响应。
+第一版纯CPU。
+第二版用OpenCL优化。
+第三版加入自定义shader脚本（如果">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MathJax Support for Hexo">
-<meta property="og:url" content="http://sun-is.me/2016/11/26/20161126_sun_AddMathJaxSupportForHexo/index.html">
+<meta property="og:title" content="软渲染实践">
+<meta property="og:url" content="http://sun-is.me/2017/01/29/20170129_sun_softrenderingStart/index.html">
 <meta property="og:site_name" content="SLG BLOG">
-<meta property="og:description" content="Install1npm install hexo-math --save
+<meta property="og:description" content="目的通过各种调研，花点时间写一个软件渲染的引擎是值得的。
 
-ConfigIn your site’s _config.yml:
-12345678910111213# MathJaxmath:  engine: &amp;apos;mathjax&amp;apos; # or &amp;apos;katex&amp;apos;  mathjax:    src: &amp;quot;//cdn.mathjax.org/m">
-<meta property="og:updated_time" content="2016-11-26T09:59:32.210Z">
+可以了解现阶段高层图形API背后的细节。为今后着手Vulkan或者DX12做准备。
+去年开发人体模型时，主要集中在网格处理和骨骼动画，这次正好弥补一下其他的部分。
+为物理渲染和光线追踪做准备。
+
+基本原则
+只用3个库，矩阵运算相关，窗口绘制，输入响应。
+第一版纯CPU。
+第二版用OpenCL优化。
+第三版加入自定义shader脚本（如果">
+<meta property="og:updated_time" content="2017-01-28T16:31:22.678Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MathJax Support for Hexo">
-<meta name="twitter:description" content="Install1npm install hexo-math --save
+<meta name="twitter:title" content="软渲染实践">
+<meta name="twitter:description" content="目的通过各种调研，花点时间写一个软件渲染的引擎是值得的。
 
-ConfigIn your site’s _config.yml:
-12345678910111213# MathJaxmath:  engine: &amp;apos;mathjax&amp;apos; # or &amp;apos;katex&amp;apos;  mathjax:    src: &amp;quot;//cdn.mathjax.org/m">
+可以了解现阶段高层图形API背后的细节。为今后着手Vulkan或者DX12做准备。
+去年开发人体模型时，主要集中在网格处理和骨骼动画，这次正好弥补一下其他的部分。
+为物理渲染和光线追踪做准备。
+
+基本原则
+只用3个库，矩阵运算相关，窗口绘制，输入响应。
+第一版纯CPU。
+第二版用OpenCL优化。
+第三版加入自定义shader脚本（如果">
 
 
 
@@ -116,7 +137,7 @@ ConfigIn your site’s _config.yml:
   };
 </script>
 
-  <title> MathJax Support for Hexo | SLG BLOG </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 软渲染实践 | SLG BLOG </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -246,7 +267,7 @@ ConfigIn your site’s _config.yml:
             
             
               
-                MathJax Support for Hexo
+                软渲染实践
               
             
           </h1>
@@ -258,8 +279,8 @@ ConfigIn your site’s _config.yml:
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-26T18:57:40+09:00" content="2016-11-26">
-              2016-11-26
+            <time itemprop="dateCreated" datetime="2017-01-29T00:55:10+09:00" content="2017-01-29">
+              2017-01-29
             </time>
           </span>
 
@@ -272,8 +293,8 @@ ConfigIn your site’s _config.yml:
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
                   </a>
                 </span>
 
@@ -288,8 +309,8 @@ ConfigIn your site’s _config.yml:
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/26/20161126_sun_AddMathJaxSupportForHexo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/26/20161126_sun_AddMathJaxSupportForHexo/" itemprop="commentsCount"></span>
+                <a href="/2017/01/29/20170129_sun_softrenderingStart/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/29/20170129_sun_softrenderingStart/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -299,7 +320,7 @@ ConfigIn your site’s _config.yml:
 
           
           
-             <span id="/2016/11/26/20161126_sun_AddMathJaxSupportForHexo/" class="leancloud_visitors" data-flag-title="MathJax Support for Hexo">
+             <span id="/2017/01/29/20170129_sun_softrenderingStart/" class="leancloud_visitors" data-flag-title="软渲染实践">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -322,12 +343,24 @@ ConfigIn your site’s _config.yml:
 
       
         <hr>
-<h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-math --save</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h1><p>In your site’s _config.yml:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># MathJax</span><br><span class="line">math:</span><br><span class="line">  engine: &apos;mathjax&apos; # or &apos;katex&apos;</span><br><span class="line">  mathjax:</span><br><span class="line">    src: &quot;//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;</span><br><span class="line">    config:</span><br><span class="line">      tex2jax:</span><br><span class="line">        inlineMath: [ [&apos;$&apos;,&apos;$&apos;], [&quot;\\(&quot;,&quot;\\)&quot;] ]</span><br><span class="line">        skipTags: [&apos;script&apos;, &apos;noscript&apos;, &apos;style&apos;, &apos;textarea&apos;, &apos;pre&apos;, &apos;code&apos;]</span><br><span class="line">        processEscapes: true</span><br><span class="line">        TeX:</span><br><span class="line">          equationNumbers:</span><br><span class="line">          autoNumber: &quot;AMS&quot;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><p>MathJax basic tutorial and quick reference.<br><a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="external">http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference</a></p>
+<h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><p>通过各种调研，花点时间写一个软件渲染的引擎是值得的。</p>
+<ol>
+<li>可以了解现阶段高层图形API背后的细节。为今后着手Vulkan或者DX12做准备。</li>
+<li>去年开发人体模型时，主要集中在网格处理和骨骼动画，这次正好弥补一下其他的部分。</li>
+<li>为物理渲染和光线追踪做准备。</li>
+</ol>
+<h1 id="基本原则"><a href="#基本原则" class="headerlink" title="基本原则"></a>基本原则</h1><ol>
+<li>只用3个库，矩阵运算相关，窗口绘制，输入响应。</li>
+<li>第一版纯CPU。</li>
+<li>第二版用OpenCL优化。</li>
+<li>第三版加入自定义shader脚本（如果还没放弃的话）。</li>
+<li>第四版加入图形shader。</li>
+</ol>
+<h1 id="实现计划"><a href="#实现计划" class="headerlink" title="实现计划"></a>实现计划</h1><ol>
+<li>语言用C++。</li>
+<li>每天晚上至少一小时。</li>
+<li>大概用半年时间。</li>
+</ol>
 
       
     </div>
@@ -348,7 +381,7 @@ ConfigIn your site’s _config.yml:
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+            <a href="/tags/CG/" rel="tag">#CG</a>
           
         </div>
       
@@ -357,17 +390,13 @@ ConfigIn your site’s _config.yml:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/26/20161126_sun_ChangingTheWork/" rel="next" title="要去研究所了">
-                <i class="fa fa-chevron-left"></i> 要去研究所了
+              <a href="/2017/01/26/20170116_sun_PBRT_Summary/" rel="next" title="Basics of Physically-based Rendering">
+                <i class="fa fa-chevron-left"></i> Basics of Physically-based Rendering
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/26/20161126_sun_WhatIWantToDo/" rel="prev" title="What I want to do ...">
-                What I want to do ... <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -393,8 +422,8 @@ ConfigIn your site’s _config.yml:
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/26/20161126_sun_AddMathJaxSupportForHexo/"
-           data-title="MathJax Support for Hexo" data-url="http://sun-is.me/2016/11/26/20161126_sun_AddMathJaxSupportForHexo/">
+      <div class="ds-thread" data-thread-key="2017/01/29/20170129_sun_softrenderingStart/"
+           data-title="软渲染实践" data-url="http://sun-is.me/2017/01/29/20170129_sun_softrenderingStart/">
       </div>
     
   </div>
@@ -485,7 +514,7 @@ ConfigIn your site’s _config.yml:
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Install"><span class="nav-number">1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Config"><span class="nav-number">2.</span> <span class="nav-text">Config</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Usage"><span class="nav-number">3.</span> <span class="nav-text">Usage</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本原则"><span class="nav-number">2.</span> <span class="nav-text">基本原则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现计划"><span class="nav-number">3.</span> <span class="nav-text">实现计划</span></a></li></ol></div>
             
           </div>
         </section>

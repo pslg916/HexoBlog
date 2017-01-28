@@ -1,6 +1,6 @@
 ---
 title: Basics of Physically-based Rendering
-date: 2017-11-26 23:30:10
+date: 2017-01-26 23:30:10
 tags: CG
 categories: 数学
 ---

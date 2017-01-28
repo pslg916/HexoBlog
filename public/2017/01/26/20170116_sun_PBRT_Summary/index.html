@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="CG," />
 
 
 
@@ -80,25 +80,25 @@
 
 
 
-<meta name="description" content="Install1npm install hexo-math --save
-
-ConfigIn your site’s _config.yml:
-12345678910111213# MathJaxmath:  engine: &amp;apos;mathjax&amp;apos; # or &amp;apos;katex&amp;apos;  mathjax:    src: &amp;quot;//cdn.mathjax.org/m">
+<meta name="description" content="Photon for Graphics People1photon = &amp;#123;energy, wavelength, polarization, time, position, direction&amp;#125;
+This is not a photon as is meant in physics!
+Radiance
+stays constant along a line (don’t lo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MathJax Support for Hexo">
-<meta property="og:url" content="http://sun-is.me/2016/11/26/20161126_sun_AddMathJaxSupportForHexo/index.html">
+<meta property="og:title" content="Basics of Physically-based Rendering">
+<meta property="og:url" content="http://sun-is.me/2017/01/26/20170116_sun_PBRT_Summary/index.html">
 <meta property="og:site_name" content="SLG BLOG">
-<meta property="og:description" content="Install1npm install hexo-math --save
-
-ConfigIn your site’s _config.yml:
-12345678910111213# MathJaxmath:  engine: &amp;apos;mathjax&amp;apos; # or &amp;apos;katex&amp;apos;  mathjax:    src: &amp;quot;//cdn.mathjax.org/m">
-<meta property="og:updated_time" content="2016-11-26T09:59:32.210Z">
+<meta property="og:description" content="Photon for Graphics People1photon = &amp;#123;energy, wavelength, polarization, time, position, direction&amp;#125;
+This is not a photon as is meant in physics!
+Radiance
+stays constant along a line (don’t lo">
+<meta property="og:updated_time" content="2017-01-28T15:54:52.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MathJax Support for Hexo">
-<meta name="twitter:description" content="Install1npm install hexo-math --save
-
-ConfigIn your site’s _config.yml:
-12345678910111213# MathJaxmath:  engine: &amp;apos;mathjax&amp;apos; # or &amp;apos;katex&amp;apos;  mathjax:    src: &amp;quot;//cdn.mathjax.org/m">
+<meta name="twitter:title" content="Basics of Physically-based Rendering">
+<meta name="twitter:description" content="Photon for Graphics People1photon = &amp;#123;energy, wavelength, polarization, time, position, direction&amp;#125;
+This is not a photon as is meant in physics!
+Radiance
+stays constant along a line (don’t lo">
 
 
 
@@ -116,7 +116,7 @@ ConfigIn your site’s _config.yml:
   };
 </script>
 
-  <title> MathJax Support for Hexo | SLG BLOG </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Basics of Physically-based Rendering | SLG BLOG </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -246,7 +246,7 @@ ConfigIn your site’s _config.yml:
             
             
               
-                MathJax Support for Hexo
+                Basics of Physically-based Rendering
               
             
           </h1>
@@ -258,8 +258,8 @@ ConfigIn your site’s _config.yml:
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-26T18:57:40+09:00" content="2016-11-26">
-              2016-11-26
+            <time itemprop="dateCreated" datetime="2017-01-26T23:30:10+09:00" content="2017-01-26">
+              2017-01-26
             </time>
           </span>
 
@@ -272,8 +272,8 @@ ConfigIn your site’s _config.yml:
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/数学/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
                   </a>
                 </span>
 
@@ -288,8 +288,8 @@ ConfigIn your site’s _config.yml:
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/26/20161126_sun_AddMathJaxSupportForHexo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/26/20161126_sun_AddMathJaxSupportForHexo/" itemprop="commentsCount"></span>
+                <a href="/2017/01/26/20170116_sun_PBRT_Summary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/26/20170116_sun_PBRT_Summary/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -299,7 +299,7 @@ ConfigIn your site’s _config.yml:
 
           
           
-             <span id="/2016/11/26/20161126_sun_AddMathJaxSupportForHexo/" class="leancloud_visitors" data-flag-title="MathJax Support for Hexo">
+             <span id="/2017/01/26/20170116_sun_PBRT_Summary/" class="leancloud_visitors" data-flag-title="Basics of Physically-based Rendering">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -322,12 +322,16 @@ ConfigIn your site’s _config.yml:
 
       
         <hr>
-<h1 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-math --save</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h1><p>In your site’s _config.yml:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># MathJax</span><br><span class="line">math:</span><br><span class="line">  engine: &apos;mathjax&apos; # or &apos;katex&apos;</span><br><span class="line">  mathjax:</span><br><span class="line">    src: &quot;//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;</span><br><span class="line">    config:</span><br><span class="line">      tex2jax:</span><br><span class="line">        inlineMath: [ [&apos;$&apos;,&apos;$&apos;], [&quot;\\(&quot;,&quot;\\)&quot;] ]</span><br><span class="line">        skipTags: [&apos;script&apos;, &apos;noscript&apos;, &apos;style&apos;, &apos;textarea&apos;, &apos;pre&apos;, &apos;code&apos;]</span><br><span class="line">        processEscapes: true</span><br><span class="line">        TeX:</span><br><span class="line">          equationNumbers:</span><br><span class="line">          autoNumber: &quot;AMS&quot;</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><p>MathJax basic tutorial and quick reference.<br><a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="external">http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference</a></p>
+<h1 id="Photon-for-Graphics-People"><a href="#Photon-for-Graphics-People" class="headerlink" title="Photon for Graphics People"></a>Photon for Graphics People</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">photon = &#123;energy, wavelength, polarization, time, position, direction&#125;</span><br></pre></td></tr></table></figure>
+<p>This is not a photon as is meant in physics!</p>
+<h1 id="Radiance"><a href="#Radiance" class="headerlink" title="Radiance"></a>Radiance</h1><ol>
+<li>stays constant along a line (don’t lose enery as they travel).</li>
+<li>very similar to “colors” see in a direction.</li>
+<li>radiometric quantites can be derived from rediance.</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">radiance = L(position, direction, wavelength, time)</span><br></pre></td></tr></table></figure>
+<h2 id="Incoming-Radiance"><a href="#Incoming-Radiance" class="headerlink" title="Incoming Radiance"></a>Incoming Radiance</h2><p>often called field radiance, is what an insect on the surface sees coming into it, like an environment map.</p>
+<h2 id="Outgoing-Radiance"><a href="#Outgoing-Radiance" class="headerlink" title="Outgoing Radiance"></a>Outgoing Radiance</h2><p>often called surface radiance, is what the viewer seed lokking at a surface.</p>
 
       
     </div>
@@ -348,7 +352,7 @@ ConfigIn your site’s _config.yml:
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+            <a href="/tags/CG/" rel="tag">#CG</a>
           
         </div>
       
@@ -357,16 +361,16 @@ ConfigIn your site’s _config.yml:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/26/20161126_sun_ChangingTheWork/" rel="next" title="要去研究所了">
-                <i class="fa fa-chevron-left"></i> 要去研究所了
+              <a href="/2016/11/26/20161126_sun_WhatIWantToDo/" rel="next" title="What I want to do ...">
+                <i class="fa fa-chevron-left"></i> What I want to do ...
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/26/20161126_sun_WhatIWantToDo/" rel="prev" title="What I want to do ...">
-                What I want to do ... <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/29/20170129_sun_softrenderingStart/" rel="prev" title="软渲染实践">
+                软渲染实践 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -393,8 +397,8 @@ ConfigIn your site’s _config.yml:
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/26/20161126_sun_AddMathJaxSupportForHexo/"
-           data-title="MathJax Support for Hexo" data-url="http://sun-is.me/2016/11/26/20161126_sun_AddMathJaxSupportForHexo/">
+      <div class="ds-thread" data-thread-key="2017/01/26/20170116_sun_PBRT_Summary/"
+           data-title="Basics of Physically-based Rendering" data-url="http://sun-is.me/2017/01/26/20170116_sun_PBRT_Summary/">
       </div>
     
   </div>
@@ -485,7 +489,7 @@ ConfigIn your site’s _config.yml:
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Install"><span class="nav-number">1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Config"><span class="nav-number">2.</span> <span class="nav-text">Config</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Usage"><span class="nav-number">3.</span> <span class="nav-text">Usage</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Photon-for-Graphics-People"><span class="nav-number">1.</span> <span class="nav-text">Photon for Graphics People</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Radiance"><span class="nav-number">2.</span> <span class="nav-text">Radiance</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Incoming-Radiance"><span class="nav-number">2.1.</span> <span class="nav-text">Incoming Radiance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Outgoing-Radiance"><span class="nav-number">2.2.</span> <span class="nav-text">Outgoing Radiance</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
