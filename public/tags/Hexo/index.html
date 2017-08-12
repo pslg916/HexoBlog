@@ -100,7 +100,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -241,7 +241,7 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-26T19:57:40+10:00"
+              datetime="2016-11-26T18:57:40+10:00"
               content="2016-11-26" >
           11-26
         </time>
@@ -259,7 +259,7 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/04/21/20160420_sun_HexoBlogEnv/" itemprop="url">
+            <a class="post-title-link" href="/2016/04/20/20160420_sun_HexoBlogEnv/" itemprop="url">
               
                 <span itemprop="name">Hexo在VPS上用Git Hook部署</span>
               
@@ -269,9 +269,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-21T00:23:50+10:00"
-              content="2016-04-21" >
-          04-21
+              datetime="2016-04-20T23:23:50+10:00"
+              content="2016-04-20" >
+          04-20
         </time>
       </div>
 
@@ -329,7 +329,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -338,7 +338,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -478,28 +478,28 @@
 
   
 
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"slgblog"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'sunisme';
+      var disqus_identifier = 'tags/Hexo/index.html';
+      var disqus_title = '';
+      var disqus_url = '';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+    </script>
+  
 
 
 

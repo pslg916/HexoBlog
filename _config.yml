@@ -91,3 +91,6 @@ math:
 
 # Author Photo
 avatar: /uploads/slg.jpg
+
+# disqus shortname
+disqus_shortname: sunisme

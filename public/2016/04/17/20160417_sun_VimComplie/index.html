@@ -88,7 +88,7 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
 编译ncurses源码http://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gzopen">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim配置-源码编译篇">
-<meta property="og:url" content="http://sun-is.me/2016/04/18/20160417_sun_VimComplie/index.html">
+<meta property="og:url" content="http://sun-is.me/2016/04/17/20160417_sun_VimComplie/index.html">
 <meta property="og:site_name" content="SLG BLOG">
 <meta property="og:description" content="详细记录了源码编译Vim的过程。
 安装python果然如果需要python支持，下面的几个源码编译时，python的版本必须统一。
@@ -116,7 +116,7 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -264,8 +264,8 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-18T00:12:42+10:00" content="2016-04-18">
-              2016-04-18
+            <time itemprop="dateCreated" datetime="2016-04-17T23:12:42+10:00" content="2016-04-17">
+              2016-04-17
             </time>
           </span>
 
@@ -294,8 +294,8 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/18/20160417_sun_VimComplie/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/18/20160417_sun_VimComplie/" itemprop="commentsCount"></span>
+                <a href="/2016/04/17/20160417_sun_VimComplie/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/04/17/20160417_sun_VimComplie/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,7 +305,7 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
 
           
           
-             <span id="/2016/04/18/20160417_sun_VimComplie/" class="leancloud_visitors" data-flag-title="Vim配置-源码编译篇">
+             <span id="/2016/04/17/20160417_sun_VimComplie/" class="leancloud_visitors" data-flag-title="Vim配置-源码编译篇">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -421,8 +421,11 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/18/20160417_sun_VimComplie/"
-           data-title="Vim配置-源码编译篇" data-url="http://sun-is.me/2016/04/18/20160417_sun_VimComplie/">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
       </div>
     
   </div>
@@ -475,7 +478,7 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -484,7 +487,7 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -639,28 +642,30 @@ Install gmp package用cygwin自带的setup-x86.exe安装gmp相关的包。vim源
 
   
 
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"slgblog"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'sunisme';
+      var disqus_identifier = '2016/04/17/20160417_sun_VimComplie/';
+      var disqus_title = 'Vim配置-源码编译篇';
+      var disqus_url = 'http://sun-is.me/2016/04/17/20160417_sun_VimComplie/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
 
 
 

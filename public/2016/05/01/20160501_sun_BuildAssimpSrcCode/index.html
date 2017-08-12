@@ -110,7 +110,7 @@ Open Asset Import Library (short name: Assimp) is a portable Open Source library
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: undefined,
       author: '博主'
     }
   };
@@ -258,7 +258,7 @@ Open Asset Import Library (short name: Assimp) is a portable Open Source library
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-01T01:33:20+10:00" content="2016-05-01">
+            <time itemprop="dateCreated" datetime="2016-05-01T00:33:20+10:00" content="2016-05-01">
               2016-05-01
             </time>
           </span>
@@ -289,7 +289,7 @@ Open Asset Import Library (short name: Assimp) is a portable Open Source library
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/05/01/20160501_sun_BuildAssimpSrcCode/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/01/20160501_sun_BuildAssimpSrcCode/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/05/01/20160501_sun_BuildAssimpSrcCode/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -406,7 +406,7 @@ Open Asset Import Library (short name: Assimp) is a portable Open Source library
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/05/08/20160501_sun_GoldenWeekBooks/" rel="prev" title="ゴールデンウイーク学习计划">
+              <a href="/2016/05/07/20160501_sun_GoldenWeekBooks/" rel="prev" title="ゴールデンウイーク学习计划">
                 ゴールデンウイーク学习计划 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -434,8 +434,11 @@ Open Asset Import Library (short name: Assimp) is a portable Open Source library
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/01/20160501_sun_BuildAssimpSrcCode/"
-           data-title="Build Assimp from Src Code" data-url="http://sun-is.me/2016/05/01/20160501_sun_BuildAssimpSrcCode/">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
       </div>
     
   </div>
@@ -488,7 +491,7 @@ Open Asset Import Library (short name: Assimp) is a portable Open Source library
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -497,7 +500,7 @@ Open Asset Import Library (short name: Assimp) is a portable Open Source library
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -652,28 +655,30 @@ Open Asset Import Library (short name: Assimp) is a portable Open Source library
 
   
 
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"slgblog"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-  
 
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'sunisme';
+      var disqus_identifier = '2016/05/01/20160501_sun_BuildAssimpSrcCode/';
+      var disqus_title = 'Build Assimp from Src Code';
+      var disqus_url = 'http://sun-is.me/2016/05/01/20160501_sun_BuildAssimpSrcCode/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
 
 
 
